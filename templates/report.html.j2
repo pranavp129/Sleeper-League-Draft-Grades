@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ league_name }} — {{ year }} Draft Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mv-black:    #0B0B0C;
+    --mv-grey-900: #1D1D20;
+    --mv-grey-700: #333338;
+    --mv-grey-600: #6B6B70;
+    --mv-grey-300: #C7C7CC;
+    --mv-white:    #F5F5F2;
+    --mv-gold:     #D4A72C;
+    --mv-gold-dim: #8C7222;
+
+    --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--mv-black);
+    color: var(--mv-white);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--mv-gold); }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 0 3rem;
+  }
+
+  header.masthead {
+    padding: 2.5rem 1.25rem 1.75rem;
+    text-align: center;
+    border-bottom: 3px solid var(--mv-gold);
+  }
+
+  header.masthead .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mv-gold);
+    margin: 0 0 0.5rem;
+  }
+
+  header.masthead h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0 0 0.35rem;
+    color: var(--mv-white);
+  }
+
+  header.masthead .subtitle {
+    color: var(--mv-grey-300);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .notices {
+    margin: 1.5rem 1.25rem 0;
+  }
+
+  .notice {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--mv-grey-300);
+    background: var(--mv-grey-900);
+    border-left: 3px solid var(--mv-gold-dim);
+    padding: 0.75rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 0.6rem;
+  }
+
+  .teams {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem 0;
+  }
+
+  .team-card {
+    background: var(--mv-grey-900);
+    border: 1px solid var(--mv-grey-700);
+    border-radius: 6px;
+    padding: 1.5rem 1.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .team-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--mv-white);
+    margin: 0;
+  }
+
+  .owner-name {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--mv-grey-600);
+    margin: 0.15rem 0 0;
+  }
+
+  .grade-stamp {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.25rem;
+    height: 4.25rem;
+    border: 3px solid var(--mv-gold);
+    border-radius: 50%;
+    color: var(--mv-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    transform: rotate(-8deg);
+    background: rgba(212, 167, 44, 0.06);
+    animation: stamp-in 0.4s ease-out;
+  }
+
+  @keyframes stamp-in {
+    0%   { transform: rotate(-8deg) scale(1.6); opacity: 0; }
+    70%  { transform: rotate(-8deg) scale(0.94); opacity: 1; }
+    100% { transform: rotate(-8deg) scale(1); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grade-stamp { animation: none; }
+  }
+
+  .record-line {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--mv-gold);
+    letter-spacing: 0.02em;
+    margin: 0 0 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--mv-grey-700);
+  }
+
+  .record-line .label {
+    color: var(--mv-grey-600);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 0.5rem;
+  }
+
+  .paragraph {
+    font-size: 0.98rem;
+    color: var(--mv-white);
+    margin: 0 0 1.1rem;
+  }
+
+  details.picks {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--mv-grey-300);
+  }
+
+  details.picks summary {
+    cursor: pointer;
+    color: var(--mv-gold-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .pick-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--mv-grey-700);
+  }
+
+  .pick-row:last-child { border-bottom: none; }
+
+  .pick-row .pick-no { color: var(--mv-grey-600); min-width: 3.5rem; }
+  .pick-row .pick-name { flex: 1; color: var(--mv-white); font-family: var(--font-body); }
+  .pick-row .pick-pos { color: var(--mv-grey-300); }
+  .pick-row .pick-value.positive { color: #7BBF6A; }
+  .pick-row .pick-value.negative { color: #C25B4A; }
+
+  footer.site-footer {
+    text-align: center;
+    padding: 2.5rem 1.25rem 1rem;
+    color: var(--mv-grey-600);
+    font-size: 0.78rem;
+  }
+
+  footer.site-footer a { color: var(--mv-gold-dim); }
+
+  @media (min-width: 640px) {
+    header.masthead h1 { font-size: 2.4rem; }
+    .team-card { padding: 1.85rem 2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <p class="eyebrow">Post-Draft Report Card</p>
+    <h1>{{ league_name }}</h1>
+    <p class="subtitle">{{ year }} Season &middot; Draft Recap</p>
+  </header>
+
+  {% if live_adp_failed or scoring_warning or schedule_unavailable %}
+  <div class="notices">
+    {% if value_grading_skipped %}
+    <p class="notice">Live ADP pull failed this run and no <code>data/rankings.csv</code> was available — the value/rank grading component was skipped entirely.</p>
+    {% elif live_adp_failed %}
+    <p class="notice">Live ADP pull failed this run — value/rank grading is based on <code>data/rankings.csv</code> only.</p>
+    {% endif %}
+    {% if scoring_warning %}
+    <p class="notice">{{ scoring_warning }}</p>
+    {% endif %}
+    {% if schedule_unavailable %}
+    <p class="notice">Season schedule isn't available yet, so projected records aren't shown this run.</p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="teams">
+    {% for team in teams %}
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">{{ team.team_name }}</h2>
+          <p class="owner-name">{{ team.owner_name }}</p>
+        </div>
+        <div class="grade-stamp">{{ team.letter_grade }}</div>
+      </div>
+
+      {% if team.projected_record %}
+      <p class="record-line"><span class="label">Projected</span>{{ team.projected_record }}</p>
+      {% endif %}
+
+      <p class="paragraph">{{ team.paragraph }}</p>
+
+      <details class="picks">
+        <summary>Full pick list ({{ team.picks|length }})</summary>
+        {% for pick in team.picks %}
+        <div class="pick-row">
+          <span class="pick-no">R{{ pick.round }}.{{ pick.pick_no }}</span>
+          <span class="pick-name">{{ pick.name }}</span>
+          <span class="pick-pos">{{ pick.position }}</span>
+          {% if pick.value is not none %}
+          <span class="pick-value {{ 'positive' if pick.value > 0 else 'negative' }}">{{ '%+d'|format(pick.value) }}</span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </details>
+    </section>
+    {% endfor %}
+  </div>
+
+  <footer class="site-footer">
+    <p>Generated {{ generated_at }} &middot; ADP data via <a href="https://fantasyfootballcalculator.com/" target="_blank" rel="noopener">Fantasy Football Calculator</a></p>
+  </footer>
+</div>
+</body>
+</html>

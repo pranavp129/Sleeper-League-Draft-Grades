@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAPA — 2026 Draft Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mv-black:    #0B0B0C;
+    --mv-grey-900: #1D1D20;
+    --mv-grey-700: #333338;
+    --mv-grey-600: #6B6B70;
+    --mv-grey-300: #C7C7CC;
+    --mv-white:    #F5F5F2;
+    --mv-gold:     #D4A72C;
+    --mv-gold-dim: #8C7222;
+
+    --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--mv-black);
+    color: var(--mv-white);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--mv-gold); }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 0 3rem;
+  }
+
+  header.masthead {
+    padding: 2.5rem 1.25rem 1.75rem;
+    text-align: center;
+    border-bottom: 3px solid var(--mv-gold);
+  }
+
+  header.masthead .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mv-gold);
+    margin: 0 0 0.5rem;
+  }
+
+  header.masthead h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0 0 0.35rem;
+    color: var(--mv-white);
+  }
+
+  header.masthead .subtitle {
+    color: var(--mv-grey-300);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .notices {
+    margin: 1.5rem 1.25rem 0;
+  }
+
+  .notice {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--mv-grey-300);
+    background: var(--mv-grey-900);
+    border-left: 3px solid var(--mv-gold-dim);
+    padding: 0.75rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 0.6rem;
+  }
+
+  .teams {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem 0;
+  }
+
+  .team-card {
+    background: var(--mv-grey-900);
+    border: 1px solid var(--mv-grey-700);
+    border-radius: 6px;
+    padding: 1.5rem 1.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .team-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--mv-white);
+    margin: 0;
+  }
+
+  .owner-name {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--mv-grey-600);
+    margin: 0.15rem 0 0;
+  }
+
+  .grade-stamp {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.25rem;
+    height: 4.25rem;
+    border: 3px solid var(--mv-gold);
+    border-radius: 50%;
+    color: var(--mv-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    transform: rotate(-8deg);
+    background: rgba(212, 167, 44, 0.06);
+    animation: stamp-in 0.4s ease-out;
+  }
+
+  @keyframes stamp-in {
+    0%   { transform: rotate(-8deg) scale(1.6); opacity: 0; }
+    70%  { transform: rotate(-8deg) scale(0.94); opacity: 1; }
+    100% { transform: rotate(-8deg) scale(1); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grade-stamp { animation: none; }
+  }
+
+  .record-line {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--mv-gold);
+    letter-spacing: 0.02em;
+    margin: 0 0 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--mv-grey-700);
+  }
+
+  .record-line .label {
+    color: var(--mv-grey-600);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 0.5rem;
+  }
+
+  .paragraph {
+    font-size: 0.98rem;
+    color: var(--mv-white);
+    margin: 0 0 1.1rem;
+  }
+
+  details.picks {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--mv-grey-300);
+  }
+
+  details.picks summary {
+    cursor: pointer;
+    color: var(--mv-gold-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .pick-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--mv-grey-700);
+  }
+
+  .pick-row:last-child { border-bottom: none; }
+
+  .pick-row .pick-no { color: var(--mv-grey-600); min-width: 3.5rem; }
+  .pick-row .pick-name { flex: 1; color: var(--mv-white); font-family: var(--font-body); }
+  .pick-row .pick-pos { color: var(--mv-grey-300); }
+  .pick-row .pick-value.positive { color: #7BBF6A; }
+  .pick-row .pick-value.negative { color: #C25B4A; }
+
+  footer.site-footer {
+    text-align: center;
+    padding: 2.5rem 1.25rem 1rem;
+    color: var(--mv-grey-600);
+    font-size: 0.78rem;
+  }
+
+  footer.site-footer a { color: var(--mv-gold-dim); }
+
+  @media (min-width: 640px) {
+    header.masthead h1 { font-size: 2.4rem; }
+    .team-card { padding: 1.85rem 2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <p class="eyebrow">Post-Draft Report Card</p>
+    <h1>PAPA</h1>
+    <p class="subtitle">2026 Season &middot; Draft Recap</p>
+  </header>
+
+  
+
+  <div class="teams">
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">CadeBoi</h2>
+          <p class="owner-name">CadeBoi</p>
+        </div>
+        <div class="grade-stamp">A+</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>11.0-3.0</p>
+      
+
+      <p class="paragraph">CadeBoi&#39;s draft is the kind of class that makes you wonder why anyone else bothered showing up. Landing Jahmyr Gibbs at pick 2 was chalk, but the real theft happened in the middle rounds — George Pickens falling to Round 3 and Zay Flowers sitting there in Round 4 is the stuff of league legend, and both landed miles under their actual value. The &#34;reach&#34; on Brock Bowers in Round 2 barely qualifies as one; TE1 upside at pick 23 is a luxury most managers never sniff. Then the depth work: Bucky Irving and Jaylen Warren give this roster a running back cushion nobody else can match, while Alec Pierce in Round 8 and the Patriots defense in Round 14 were flat-out gifts. The only blemish is quarterback — waiting until Round 9 for Herbert and circling back for Jordan Love in Round 12 leaves thin insurance at the position, and the overall build leans heavily on floor over ceiling. But with this much value banked everywhere else, that&#39;s a nitpick, not a flaw. This is a title roster.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.2</span>
+          <span class="pick-name">Jahmyr Gibbs</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.23</span>
+          <span class="pick-name">Brock Bowers</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-21</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.26</span>
+          <span class="pick-name">George Pickens</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.47</span>
+          <span class="pick-name">Zay Flowers</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+21</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.50</span>
+          <span class="pick-name">Bucky Irving</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.71</span>
+          <span class="pick-name">Brian Thomas</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.74</span>
+          <span class="pick-name">Jaylen Warren</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+12</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.95</span>
+          <span class="pick-name">Alec Pierce</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+34</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.98</span>
+          <span class="pick-name">Justin Herbert</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.119</span>
+          <span class="pick-name">Jakobi Meyers</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+32</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.122</span>
+          <span class="pick-name">Dallas Goedert</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value positive">+21</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.143</span>
+          <span class="pick-name">Jordan Love</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-9</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.146</span>
+          <span class="pick-name">Keaton Mitchell</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-9</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.167</span>
+          <span class="pick-name">New England Patriots</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+34</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.170</span>
+          <span class="pick-name">Harrison Mevis</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+21</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Calamitous Cornballs</h2>
+          <p class="owner-name">Rokas</p>
+        </div>
+        <div class="grade-stamp">A</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>10.4-3.6</p>
+      
+
+      <p class="paragraph">The Calamitous Cornballs built the closest thing to a bulletproof roster in this league, and the A grade reflects a draft where nearly every pick answered a need without sacrificing value. Puka Nacua at four is as safe a WR1 anchor as exists, and pairing him with Ashton Jeanty and Breece Hall in rounds two and three gives this team a three-down workhorse duo that most squads simply don&#39;t have. Jaylen Waddle in round four was pure value at his ADP, and the Jayden Daniels pick in round seven looks like theft given his ceiling. Where this class separates itself is depth — Deebo Samuel falling to round eleven and the Vikings&#39; defense sliding to round fourteen are the kind of late-draft thefts that win championships in November. Yes, Tyler Warren in round five was a slight reach and Brian Robinson in round thirteen was a stretch, but those are minor blemishes on a roster with zero positional holes. This is a floor-heavy, safety-first build that should cruise to 10+ wins without much drama.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.4</span>
+          <span class="pick-name">Puka Nacua</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.21</span>
+          <span class="pick-name">Ashton Jeanty</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.28</span>
+          <span class="pick-name">Breece Hall</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.45</span>
+          <span class="pick-name">Jaylen Waddle</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.52</span>
+          <span class="pick-name">Tyler Warren</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-20</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.69</span>
+          <span class="pick-name">Christian Watson</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+13</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.76</span>
+          <span class="pick-name">Jayden Daniels</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.93</span>
+          <span class="pick-name">RJ Harvey</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-9</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.100</span>
+          <span class="pick-name">Trevor Lawrence</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+7</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.117</span>
+          <span class="pick-name">Kenny Gainwell</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+16</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.124</span>
+          <span class="pick-name">Deebo Samuel</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+23</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.141</span>
+          <span class="pick-name">Rashid Shaheed</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+21</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.148</span>
+          <span class="pick-name">Brian Robinson</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-18</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.165</span>
+          <span class="pick-name">Minnesota Vikings</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+54</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.172</span>
+          <span class="pick-name">Will Reichard</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+8</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">SlushieMagic</h2>
+          <p class="owner-name">SlushieMagic</p>
+        </div>
+        <div class="grade-stamp">A-</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>10.7-3.3</p>
+      
+
+      <p class="paragraph">SlushieMagic put together the kind of draft that wins leagues on paper and occasionally loses them in the fine print. Saquon Barkley at Pick 11 was the anchor, and pairing him with Omarion Hampton in Round 2 gives this roster a bulldozing ground game, even if Hampton a few picks ahead of consensus counts as the one real reach on the sheet. The receiver room is loaded with proven floor — Tee Higgins, Mike Evans, DK Metcalf, Rome Odunze — but that&#39;s exactly the problem: this is a safe, chalky build with almost no swing-for-the-fences upside, reflected in that ugly 26 upside score. Dak Prescott in Round 8 and Brock Purdy in Round 11 were legitimate values that shore up the QB room without spending real capital. The Travis Kelce flier in Round 9 is a name-brand gamble on a TE room that&#39;s otherwise thin, and it&#39;s the clearest positional soft spot on an otherwise deep, well-balanced bench. This team is built to grind out 10-plus wins, not necessarily to catch fire in the playoffs.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.11</span>
+          <span class="pick-name">Saquon Barkley</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.14</span>
+          <span class="pick-name">Omarion Hampton</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.35</span>
+          <span class="pick-name">Tee Higgins</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.38</span>
+          <span class="pick-name">D&#39;Andre Swift</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.59</span>
+          <span class="pick-name">Rome Odunze</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.62</span>
+          <span class="pick-name">Mike Evans</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+7</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.83</span>
+          <span class="pick-name">DK Metcalf</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+18</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.86</span>
+          <span class="pick-name">Dak Prescott</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+19</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.107</span>
+          <span class="pick-name">Travis Kelce</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.110</span>
+          <span class="pick-name">Wan&#39;Dale Robinson</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+16</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.131</span>
+          <span class="pick-name">Brock Purdy</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+41</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.134</span>
+          <span class="pick-name">Woody Marks</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.155</span>
+          <span class="pick-name">Cam Little</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.158</span>
+          <span class="pick-name">Philadelphia Eagles</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+16</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.179</span>
+          <span class="pick-name">Brenton Strange</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value positive">+7</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Wreck it Ralph&#39;s</h2>
+          <p class="owner-name">ralphpapa</p>
+        </div>
+        <div class="grade-stamp">B+</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>9.1-4.9</p>
+      
+
+      <p class="paragraph">Wreck it Ralph&#39;s built this class the way a contractor pours a foundation — slab first, worry about the penthouse later. CeeDee Lamb at 1.10 and Rashee Rice falling to 3.34 gave this roster a floor few others in the league can match, and Chase Brown in Round 2 slots in as a true bell-cow complement. The depth is where this team wins its grade: stacking Rhamondre Stevenson, Jonathon Brooks and Tyler Allgeier behind Bhayshul Tuten means a hamstring tweak doesn&#39;t sink the season, and Michael Pittman at pick 111 is close to theft. But this is a team built to survive, not explode — nothing on this roster screams league-winner, and the swing for Colston Loveland in Round 4 hasn&#39;t paid off yet. The real crack in the plan is quarterback, punted until Jared Goff at 12.135 and Kyler Murray as a hedge — both fine value, neither a difference-maker. Safe, deep, and low-ceiling: that&#39;s a B+ team that wins with attrition, not with fireworks.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.10</span>
+          <span class="pick-name">CeeDee Lamb</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.15</span>
+          <span class="pick-name">Chase Brown</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.34</span>
+          <span class="pick-name">Rashee Rice</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+18</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.39</span>
+          <span class="pick-name">Colston Loveland</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-23</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.58</span>
+          <span class="pick-name">Bhayshul Tuten</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.63</span>
+          <span class="pick-name">Marvin Harrison</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.82</span>
+          <span class="pick-name">Rhamondre Stevenson</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+18</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.87</span>
+          <span class="pick-name">Jonathon Brooks</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.106</span>
+          <span class="pick-name">KC Concepcion</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-11</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.111</span>
+          <span class="pick-name">Michael Pittman</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+29</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.130</span>
+          <span class="pick-name">Tyler Allgeier</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-23</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.135</span>
+          <span class="pick-name">Jared Goff</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+34</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.154</span>
+          <span class="pick-name">Kyler Murray</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+17</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.159</span>
+          <span class="pick-name">Los Angeles Chargers</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+18</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.178</span>
+          <span class="pick-name">Eddy Pineiro</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+18</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Cig Ten</h2>
+          <p class="owner-name">derekmroberts</p>
+        </div>
+        <div class="grade-stamp">B</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>8.6-5.4</p>
+      
+
+      <p class="paragraph">Cig Ten built this roster the way a general contractor builds a house nobody can complain about: sturdy, code-compliant, nothing flashy. Jonathan Taylor at 1.07 is a clean anchor, and pairing him with Kenneth Walker in Round 2 gives this backfield a floor most teams would kill for. The receiver room is where the value lives — DeVonta Smith and Emeka Egbuka back-to-back in Rounds 3-4 is efficient drafting, and Luther Burden at 58 overall is basically found money. But then the reaches start piling up: Sam LaPorta in Round 6 as a bounce-back bet on a banged-up situation, and Kyle Monangai a full round ahead of his number, are the kind of picks that cap upside rather than chase it. Xavier Worthy sliding to Round 11 and the Broncos&#39; defense falling to Round 13 are the two genuine steals that keep this class afloat. There&#39;s no positional hole to exploit, which is exactly the problem — this team drafted for safety, not ceiling, and it shows.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.7</span>
+          <span class="pick-name">Jonathan Taylor</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.18</span>
+          <span class="pick-name">Kenneth Walker</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.31</span>
+          <span class="pick-name">DeVonta Smith</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.42</span>
+          <span class="pick-name">Emeka Egbuka</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+8</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.55</span>
+          <span class="pick-name">Luther Burden</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.66</span>
+          <span class="pick-name">Sam LaPorta</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-60</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.79</span>
+          <span class="pick-name">Jalen Hurts</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.90</span>
+          <span class="pick-name">Kyle Monangai</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-8</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.103</span>
+          <span class="pick-name">Quentin Johnston</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+15</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.114</span>
+          <span class="pick-name">Jaxson Dart</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.127</span>
+          <span class="pick-name">Xavier Worthy</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+27</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.138</span>
+          <span class="pick-name">Brandon Aubrey</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+4</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.151</span>
+          <span class="pick-name">Denver Broncos</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+58</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.162</span>
+          <span class="pick-name">Tank Bigsby</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+7</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.175</span>
+          <span class="pick-name">Elijah Sarratt</span>
+          <span class="pick-pos">WR</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">TheWrightTeam</h2>
+          <p class="owner-name">TheWrightTeam</p>
+        </div>
+        <div class="grade-stamp">B-</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>8.0-6.0</p>
+      
+
+      <p class="paragraph">TheWrightTeam built around a rock-solid one-two punch at the top — Justin Jefferson in Round 1 and De&#39;Von Achane a round later at pick 13 overall is about as good as any manager in this league did securing a true WR1 and a dynamic RB1. Jeremiyah Love in Round 3 gives this backfield real juice, and Lamar Jackson falling to Round 4 was a legitimate coup at the QB position. But the middle rounds get shaky: Jadarian Price in Round 6 and Jake Ferguson in Round 9 were both reaches that didn&#39;t pay off, and the tight end room is a genuine problem area with Ferguson and Oronde Gadsden as the only answers. Credit where it&#39;s due late — Jalen Coker in Round 12 and Tyjae Spears in Round 15 were savvy value grabs that add real bench juice, and stashing Alvin Kamara that late is pure profit. This is a top-heavy roster that wins if the stars stay healthy, but the TE hole caps the ceiling.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.12</span>
+          <span class="pick-name">Justin Jefferson</span>
+          <span class="pick-pos">WR</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.13</span>
+          <span class="pick-name">De&#39;Von Achane</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.36</span>
+          <span class="pick-name">Jeremiyah Love</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+7</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.37</span>
+          <span class="pick-name">Lamar Jackson</span>
+          <span class="pick-pos">QB</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.60</span>
+          <span class="pick-name">Terry McLaurin</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+14</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.61</span>
+          <span class="pick-name">Jadarian Price</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-12</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.84</span>
+          <span class="pick-name">Chris Godwin</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+7</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.85</span>
+          <span class="pick-name">Chuba Hubbard</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.108</span>
+          <span class="pick-name">Jake Ferguson</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-36</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.109</span>
+          <span class="pick-name">Los Angeles Rams</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value negative">-4</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.132</span>
+          <span class="pick-name">Oronde Gadsden</span>
+          <span class="pick-pos">TE</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.133</span>
+          <span class="pick-name">Jalen Coker</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+15</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.156</span>
+          <span class="pick-name">Jake Bates</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+9</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.157</span>
+          <span class="pick-name">Alvin Kamara</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.180</span>
+          <span class="pick-name">Tyjae Spears</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+40</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Upper Decky’s</h2>
+          <p class="owner-name">maxmcc17</p>
+        </div>
+        <div class="grade-stamp">C+</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>7.1-6.9</p>
+      
+
+      <p class="paragraph">Upper Decky&#39;s built a roster that looks great on paper and grades out as a middling C+ once you factor in what it actually cost to assemble it. Chase at 1.03 and London at 2.22 is about as safe a WR1-WR2 foundation as you&#39;ll find in this league, and pairing that with Javonte Williams and David Montgomery in Rounds 3-4 checks every box for balance. But this team consistently paid retail or worse for its pieces — Burrow at 5.51 as basically a QB2-value pick, and Dalton Kincaid in Round 8 nearly sixty spots ahead of his actual ranking, is the kind of reach that erases the good work done earlier. Jonah Coleman in Round 12 is another case of drafting need over value when better players were sitting on the board. The Golden pickup in Round 11 and Fairbairn as a Round 13 kicker are the lone bright spots of actual draft-capital efficiency. The roster is deep and balanced enough to compete, projecting right around .500, but the manager left real equity on the table by reaching instead of trusting the board.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.3</span>
+          <span class="pick-name">Ja&#39;Marr Chase</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.22</span>
+          <span class="pick-name">Drake London</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.27</span>
+          <span class="pick-name">Javonte Williams</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.46</span>
+          <span class="pick-name">David Montgomery</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-9</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.51</span>
+          <span class="pick-name">Joe Burrow</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.70</span>
+          <span class="pick-name">Courtland Sutton</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.75</span>
+          <span class="pick-name">Michael Wilson</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.94</span>
+          <span class="pick-name">Dalton Kincaid</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-58</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.99</span>
+          <span class="pick-name">Jordan Mason</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-15</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.118</span>
+          <span class="pick-name">Isaiah Likely</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-16</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.123</span>
+          <span class="pick-name">Matthew Golden</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+20</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.142</span>
+          <span class="pick-name">Jonah Coleman</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-24</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.147</span>
+          <span class="pick-name">Ka&#39;imi Fairbairn</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+15</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.166</span>
+          <span class="pick-name">Jacksonville Jaguars</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+4</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.171</span>
+          <span class="pick-name">Cam Ward</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">dp3thickums</h2>
+          <p class="owner-name">dp3thickums</p>
+        </div>
+        <div class="grade-stamp">C</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>6.1-7.9</p>
+      
+
+      <p class="paragraph">dp3thickums did everything &#34;right&#34; on paper and still lands here with a gentleman&#39;s C, and the reason is simple: this is the safest, most floor-obsessed roster in the league. Jaxon Smith-Njigba at 1.05 is a fine anchor, but the follow-up of Kyren Williams and Josh Jacobs back-to-back in Rounds 2-3 signals a team building a spreadsheet, not a fantasy juggernaut — steady, unspectacular veteran volume with almost no spike-week equity. Tetairoa McMillan and DJ Moore add more of the same &#34;solid floor, low ceiling&#34; profile. The Caleb Williams reach in Round 6 is the only real swing taken all draft, and it&#39;s a passive one at a position with a deep waiver pool. Late-round work salvaged some respectability — Stefon Diggs in Round 10 and Cooper Kupp falling to Round 15 are legitimate value hits — but by then the roster&#39;s identity was already locked in. Every need got filled, nothing got maximized. Projected at 6.1-7.9, this team drafted for a division nobody&#39;s actually playing in.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.5</span>
+          <span class="pick-name">Jaxon Smith-Njigba</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.20</span>
+          <span class="pick-name">Kyren Williams</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-7</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.29</span>
+          <span class="pick-name">Josh Jacobs</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.44</span>
+          <span class="pick-name">Tetairoa McMillan</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+13</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.53</span>
+          <span class="pick-name">DJ Moore</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+8</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.68</span>
+          <span class="pick-name">Caleb Williams</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-23</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.77</span>
+          <span class="pick-name">Kyle Pitts</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.92</span>
+          <span class="pick-name">J.K. Dobbins</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+14</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.101</span>
+          <span class="pick-name">Jordan Addison</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+14</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.116</span>
+          <span class="pick-name">Stefon Diggs</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+21</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.125</span>
+          <span class="pick-name">Romeo Doubs</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+16</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.140</span>
+          <span class="pick-name">Zach Charbonnet</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.149</span>
+          <span class="pick-name">Baltimore Ravens</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value negative">-20</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.164</span>
+          <span class="pick-name">Evan McPherson</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value negative">-15</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.173</span>
+          <span class="pick-name">Cooper Kupp</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+18</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Chumps</h2>
+          <p class="owner-name">charlieboydawg</p>
+        </div>
+        <div class="grade-stamp">C-</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>5.8-8.2</p>
+      
+
+      <p class="paragraph">The Chumps opened the board about as safely as possible, and that&#39;s precisely the problem — James Cook at 1.08 and A.J. Brown at 2.17 are perfectly fine building blocks, but there&#39;s nothing here that screams &#34;ceiling.&#34; That pattern repeats all draft long: Chris Olave, Tony Pollard, even Jameson Williams as a nice value grab in Round 5 are all solid-floor, low-spike assets, and that upside-vs-floor score of 11 tells the real story of this class. The bench is deep and thoughtfully constructed — Cam Skattebo and Blake Corum give real RB insurance, Denzel Boston and De&#39;Zhaun Stribling are reasonable dart throws late — but reaching for Tucker Kraft in Round 6 and Corum in Round 8 burned capital that could&#39;ve chased difference-makers. Worse, this team punted the QB position until Mahomes fell to Round 9, and pairing him with Bo Nix as insurance doesn&#39;t erase the fact that need coverage lagged all night. Balanced, unspectacular, and projected to finish sub-.500 — the Chumps built a roster that plays it safe and gets punished for it.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.8</span>
+          <span class="pick-name">James Cook</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.17</span>
+          <span class="pick-name">A.J. Brown</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.32</span>
+          <span class="pick-name">Chris Olave</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+8</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.41</span>
+          <span class="pick-name">Cam Skattebo</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.56</span>
+          <span class="pick-name">Jameson Williams</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+17</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.65</span>
+          <span class="pick-name">Tucker Kraft</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-29</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.80</span>
+          <span class="pick-name">Tony Pollard</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+12</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.89</span>
+          <span class="pick-name">Blake Corum</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-32</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.104</span>
+          <span class="pick-name">Patrick Mahomes</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.113</span>
+          <span class="pick-name">Bo Nix</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.128</span>
+          <span class="pick-name">De&#39;Zhaun Stribling</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.137</span>
+          <span class="pick-name">Denzel Boston</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-4</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.152</span>
+          <span class="pick-name">Jason Myers</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+10</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.161</span>
+          <span class="pick-name">Omar Cooper</span>
+          <span class="pick-pos">WR</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.176</span>
+          <span class="pick-name">Detroit Lions</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+47</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Shravan</h2>
+          <p class="owner-name">Shravan</p>
+        </div>
+        <div class="grade-stamp">D+</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>4.3-9.7</p>
+      
+
+      <p class="paragraph">Shravan&#39;s class starts about as well as any in the league — Bijan Robinson at 1.1, Trey McBride falling to Round 2, Nico Collins and Garrett Wilson stacked in Rounds 3 and 4 — and then the wheels come off almost immediately. That top four is a legitimate fantasy core, but the plan seems to stop there. Drake Maye in Round 6 is a fine QB2 swing, yet the middle and late rounds turn into a parade of safe, low-ceiling fliers: Rico Dowdle, Rachaad White, Isiah Pacheco, Jacory Croskey-Merritt — a bench full of committee backs with capped upside instead of anyone who profiles as a league-winner. The Jordyn Tyson and Hunter Henry reaches in Rounds 8 and 13 sting because there were far better sleepers on the board. Seattle&#39;s defense in Round 10 and Tyler Shough as a Round 15 dart throw show flashes of savvy, but they&#39;re not enough to offset a roster that&#39;s front-loaded and thin everywhere else. Elite top, empty middle — that&#39;s a 4-9 team unless the stars stay healthy all year.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.1</span>
+          <span class="pick-name">Bijan Robinson</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.24</span>
+          <span class="pick-name">Trey McBride</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-13</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.25</span>
+          <span class="pick-name">Nico Collins</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.48</span>
+          <span class="pick-name">Garrett Wilson</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+16</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.49</span>
+          <span class="pick-name">TreVeyon Henderson</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-14</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.72</span>
+          <span class="pick-name">Drake Maye</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+20</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.73</span>
+          <span class="pick-name">Rico Dowdle</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.96</span>
+          <span class="pick-name">Jordyn Tyson</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-61</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.97</span>
+          <span class="pick-name">Jacory Croskey-Merritt</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.120</span>
+          <span class="pick-name">Seattle Seahawks</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+39</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.121</span>
+          <span class="pick-name">Rachaad White</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.144</span>
+          <span class="pick-name">Cameron Dicker</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value positive">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.145</span>
+          <span class="pick-name">Hunter Henry</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-17</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.168</span>
+          <span class="pick-name">Isiah Pacheco</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+11</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.169</span>
+          <span class="pick-name">Tyler Shough</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+29</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Milky Barn Liquor</h2>
+          <p class="owner-name">jackklein12</p>
+        </div>
+        <div class="grade-stamp">D</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>2.7-11.3</p>
+      
+
+      <p class="paragraph">Milky Barn Liquor gets the &#34;D&#34; not because the talent isn&#39;t there, but because this manager paid retail on nearly every shelf in the store. Amon-Ra St. Brown at 1.6 is a fine building block, but the very next selection — Quinshon Judkins at pick 19, a player with a 52 ADP — set the tone for a draft where reaches piled up faster than value. Travis Etienne in Round 4 was the lone shrewd grab, actually beating his ADP, and the Texans defense sneaking to Round 13 was a nice piece of thievery. But those bright spots get buried under Mike Washington at pick 102 (ranked 152nd overall) and a Baker Mayfield-Stafford quarterback tandem that reeks of hedging rather than conviction. Positional need coverage is maxed out, sure, but that&#39;s cold comfort when the format actively punished this manager for not letting value fall to them. A 2.7-11.3 projection isn&#39;t bad luck — it&#39;s the mathematical consequence of a draft board ignored.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.6</span>
+          <span class="pick-name">Amon-Ra St. Brown</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.19</span>
+          <span class="pick-name">Quinshon Judkins</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-32</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.30</span>
+          <span class="pick-name">Malik Nabers</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.43</span>
+          <span class="pick-name">Travis Etienne</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+5</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.54</span>
+          <span class="pick-name">Carnell Tate</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-21</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.67</span>
+          <span class="pick-name">Harold Fannin</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-15</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.78</span>
+          <span class="pick-name">Matthew Stafford</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value positive">+3</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.91</span>
+          <span class="pick-name">Jayden Reed</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.102</span>
+          <span class="pick-name">Mike Washington</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-49</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.115</span>
+          <span class="pick-name">Baker Mayfield</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-19</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.126</span>
+          <span class="pick-name">Mark Andrews</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value positive">+2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.139</span>
+          <span class="pick-name">Ja&#39;Kobi Lane</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-27</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.150</span>
+          <span class="pick-name">Houston Texans</span>
+          <span class="pick-pos">DEF</span>
+          
+          <span class="pick-value positive">+49</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.163</span>
+          <span class="pick-name">Chris Boswell</span>
+          <span class="pick-pos">K</span>
+          
+          <span class="pick-value negative">-8</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.174</span>
+          <span class="pick-name">Payton Thorne</span>
+          <span class="pick-pos">QB</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">B1G Dumpers</h2>
+          <p class="owner-name">ShadowPP</p>
+        </div>
+        <div class="grade-stamp">F</div>
+      </div>
+
+      
+      <p class="record-line"><span class="label">Projected</span>0.2-13.8</p>
+      
+
+      <p class="paragraph">B1G Dumpers opened the draft looking like world-beaters, snagging Christian McCaffrey at 1.09 and Derrick Henry at 2.16, then landing Josh Allen dead-on ADP in Round 3 — that&#39;s about as clean a start as you&#39;ll see in this league. But that&#39;s where the competence ends. This roster is a wide receiver landfill with zero defense and zero kicker rostered, which alone should be disqualifying for a team calling itself draft-ready. The bench is a bunch of dart throws — Chris Rodriguez, Tyrone Tracy, Jalen Nailor — with no positional need coverage to speak of and no plan beyond &#34;hope the studs stay healthy.&#34; George Kittle at pick 81 was a full two rounds ahead of his actual value, an unforced error compounding the roster&#39;s imbalance. Yes, Khalil Shakir and Jalen McMillan were genuine late-round steals, proof someone in this draft room can read a cheat sheet, but two smart swings can&#39;t offset thirteen rounds of neglect. Projected for 0.2 wins, this team built a Ferrari engine and forgot the wheels.</p>
+
+      <details class="picks">
+        <summary>Full pick list (15)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.9</span>
+          <span class="pick-name">Christian McCaffrey</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+2</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.16</span>
+          <span class="pick-name">Derrick Henry</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value positive">+6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.33</span>
+          <span class="pick-name">Josh Allen</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">+0</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R4.40</span>
+          <span class="pick-name">Ladd McConkey</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R5.57</span>
+          <span class="pick-name">Davante Adams</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+19</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R6.64</span>
+          <span class="pick-name">Parker Washington</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-1</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R7.81</span>
+          <span class="pick-name">George Kittle</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-35</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R8.88</span>
+          <span class="pick-name">Makai Lemon</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-23</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R9.105</span>
+          <span class="pick-name">Aaron Jones</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-4</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R10.112</span>
+          <span class="pick-name">Josh Downs</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+20</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R11.129</span>
+          <span class="pick-name">Chris Rodriguez</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-29</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R12.136</span>
+          <span class="pick-name">Tyrone Tracy</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-30</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R13.153</span>
+          <span class="pick-name">Jalen Nailor</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+12</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R14.160</span>
+          <span class="pick-name">Khalil Shakir</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+51</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R15.177</span>
+          <span class="pick-name">Jalen McMillan</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value positive">+43</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+  </div>
+
+  <footer class="site-footer">
+    <p>Generated 2026-08-27 00:58 UTC &middot; ADP data via <a href="https://fantasyfootballcalculator.com/" target="_blank" rel="noopener">Fantasy Football Calculator</a></p>
+  </footer>
+</div>
+</body>
+</html>
