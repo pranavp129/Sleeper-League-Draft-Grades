@@ -131,12 +131,14 @@
   </header>
 
   <div class="leagues">
-    
-    <a class="league-card" href="papa/">
-      <p class="league-name">PAPA</p>
-      <p class="league-meta">2026 Season</p>
+    {% for league in leagues %}
+    <a class="league-card" href="{{ league.slug }}/">
+      <p class="league-name">{{ league.league_name }}</p>
+      <p class="league-meta">{{ league.year }} Season</p>
     </a>
-    
+    {% else %}
+    <p class="empty-state">No draft recaps generated yet.</p>
+    {% endfor %}
   </div>
 
   <footer class="site-footer">

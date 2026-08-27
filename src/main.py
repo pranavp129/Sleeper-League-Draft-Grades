@@ -24,6 +24,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--league-id", default=None, help="Sleeper league ID (overrides SLEEPER_LEAGUE_ID)")
     parser.add_argument("--year", type=int, default=datetime.now().year, help="Season year, for FFC ADP lookup")
     parser.add_argument(
+        "--slug",
+        default=None,
+        help="URL slug for this league's page (docs/<slug>/). Defaults to a slugified league name.",
+    )
+    parser.add_argument(
         "--model",
         default=narrative.DEFAULT_MODEL,
         help=f"Claude model for recap paragraphs (default: {narrative.DEFAULT_MODEL})",
@@ -172,10 +177,17 @@ def main() -> None:
         "schedule_unavailable": schedule_unavailable,
     }
 
-    html_path = report.render_html(context)
-    md_path = report.render_markdown(context)
+    slug = args.slug or report.slugify(context["league_name"])
+    html_path = report.render_html(context, output_path=report.DOCS_DIR / slug / "index.html")
+    md_path = report.render_markdown(context, slug=slug)
     logger.info("Wrote %s", html_path)
     logger.info("Wrote %s", md_path)
+
+    leagues = report.update_leagues_manifest(
+        slug=slug, league_name=context["league_name"], year=args.year, generated_at=context["generated_at"]
+    )
+    hub_path = report.render_hub(leagues)
+    logger.info("Wrote %s (%d league%s)", hub_path, len(leagues), "" if len(leagues) == 1 else "s")
 
 
 if __name__ == "__main__":
