@@ -1,10 +1,10 @@
 # PAPA — 2026 Draft Recap
 
-_Generated 2026-08-27 00:58 UTC_
+_Generated 2026-08-27 01:16 UTC_
 
 ## CadeBoi — A+
 
-**Projected record:** 11.0-3.0
+**Projected record:** 9-5
 
 CadeBoi's draft is the kind of class that makes you wonder why anyone else bothered showing up. Landing Jahmyr Gibbs at pick 2 was chalk, but the real theft happened in the middle rounds — George Pickens falling to Round 3 and Zay Flowers sitting there in Round 4 is the stuff of league legend, and both landed miles under their actual value. The "reach" on Brock Bowers in Round 2 barely qualifies as one; TE1 upside at pick 23 is a luxury most managers never sniff. Then the depth work: Bucky Irving and Jaylen Warren give this roster a running back cushion nobody else can match, while Alec Pierce in Round 8 and the Patriots defense in Round 14 were flat-out gifts. The only blemish is quarterback — waiting until Round 9 for Herbert and circling back for Jordan Love in Round 12 leaves thin insurance at the position, and the overall build leans heavily on floor over ceiling. But with this much value banked everywhere else, that's a nitpick, not a flaw. This is a title roster.
 
@@ -27,7 +27,7 @@ CadeBoi's draft is the kind of class that makes you wonder why anyone else bothe
 
 ## Calamitous Cornballs — A
 
-**Projected record:** 10.4-3.6
+**Projected record:** 9-5
 
 The Calamitous Cornballs built the closest thing to a bulletproof roster in this league, and the A grade reflects a draft where nearly every pick answered a need without sacrificing value. Puka Nacua at four is as safe a WR1 anchor as exists, and pairing him with Ashton Jeanty and Breece Hall in rounds two and three gives this team a three-down workhorse duo that most squads simply don't have. Jaylen Waddle in round four was pure value at his ADP, and the Jayden Daniels pick in round seven looks like theft given his ceiling. Where this class separates itself is depth — Deebo Samuel falling to round eleven and the Vikings' defense sliding to round fourteen are the kind of late-draft thefts that win championships in November. Yes, Tyler Warren in round five was a slight reach and Brian Robinson in round thirteen was a stretch, but those are minor blemishes on a roster with zero positional holes. This is a floor-heavy, safety-first build that should cruise to 10+ wins without much drama.
 
@@ -50,7 +50,7 @@ The Calamitous Cornballs built the closest thing to a bulletproof roster in this
 
 ## SlushieMagic — A-
 
-**Projected record:** 10.7-3.3
+**Projected record:** 9-5
 
 SlushieMagic put together the kind of draft that wins leagues on paper and occasionally loses them in the fine print. Saquon Barkley at Pick 11 was the anchor, and pairing him with Omarion Hampton in Round 2 gives this roster a bulldozing ground game, even if Hampton a few picks ahead of consensus counts as the one real reach on the sheet. The receiver room is loaded with proven floor — Tee Higgins, Mike Evans, DK Metcalf, Rome Odunze — but that's exactly the problem: this is a safe, chalky build with almost no swing-for-the-fences upside, reflected in that ugly 26 upside score. Dak Prescott in Round 8 and Brock Purdy in Round 11 were legitimate values that shore up the QB room without spending real capital. The Travis Kelce flier in Round 9 is a name-brand gamble on a TE room that's otherwise thin, and it's the clearest positional soft spot on an otherwise deep, well-balanced bench. This team is built to grind out 10-plus wins, not necessarily to catch fire in the playoffs.
 
@@ -73,7 +73,7 @@ SlushieMagic put together the kind of draft that wins leagues on paper and occas
 
 ## Wreck it Ralph's — B+
 
-**Projected record:** 9.1-4.9
+**Projected record:** 8-6
 
 Wreck it Ralph's built this class the way a contractor pours a foundation — slab first, worry about the penthouse later. CeeDee Lamb at 1.10 and Rashee Rice falling to 3.34 gave this roster a floor few others in the league can match, and Chase Brown in Round 2 slots in as a true bell-cow complement. The depth is where this team wins its grade: stacking Rhamondre Stevenson, Jonathon Brooks and Tyler Allgeier behind Bhayshul Tuten means a hamstring tweak doesn't sink the season, and Michael Pittman at pick 111 is close to theft. But this is a team built to survive, not explode — nothing on this roster screams league-winner, and the swing for Colston Loveland in Round 4 hasn't paid off yet. The real crack in the plan is quarterback, punted until Jared Goff at 12.135 and Kyler Murray as a hedge — both fine value, neither a difference-maker. Safe, deep, and low-ceiling: that's a B+ team that wins with attrition, not with fireworks.
 
@@ -96,7 +96,7 @@ Wreck it Ralph's built this class the way a contractor pours a foundation — sl
 
 ## Cig Ten — B
 
-**Projected record:** 8.6-5.4
+**Projected record:** 8-6
 
 Cig Ten built this roster the way a general contractor builds a house nobody can complain about: sturdy, code-compliant, nothing flashy. Jonathan Taylor at 1.07 is a clean anchor, and pairing him with Kenneth Walker in Round 2 gives this backfield a floor most teams would kill for. The receiver room is where the value lives — DeVonta Smith and Emeka Egbuka back-to-back in Rounds 3-4 is efficient drafting, and Luther Burden at 58 overall is basically found money. But then the reaches start piling up: Sam LaPorta in Round 6 as a bounce-back bet on a banged-up situation, and Kyle Monangai a full round ahead of his number, are the kind of picks that cap upside rather than chase it. Xavier Worthy sliding to Round 11 and the Broncos' defense falling to Round 13 are the two genuine steals that keep this class afloat. There's no positional hole to exploit, which is exactly the problem — this team drafted for safety, not ceiling, and it shows.
 
@@ -119,7 +119,7 @@ Cig Ten built this roster the way a general contractor builds a house nobody can
 
 ## TheWrightTeam — B-
 
-**Projected record:** 8.0-6.0
+**Projected record:** 8-6
 
 TheWrightTeam built around a rock-solid one-two punch at the top — Justin Jefferson in Round 1 and De'Von Achane a round later at pick 13 overall is about as good as any manager in this league did securing a true WR1 and a dynamic RB1. Jeremiyah Love in Round 3 gives this backfield real juice, and Lamar Jackson falling to Round 4 was a legitimate coup at the QB position. But the middle rounds get shaky: Jadarian Price in Round 6 and Jake Ferguson in Round 9 were both reaches that didn't pay off, and the tight end room is a genuine problem area with Ferguson and Oronde Gadsden as the only answers. Credit where it's due late — Jalen Coker in Round 12 and Tyjae Spears in Round 15 were savvy value grabs that add real bench juice, and stashing Alvin Kamara that late is pure profit. This is a top-heavy roster that wins if the stars stay healthy, but the TE hole caps the ceiling.
 
@@ -142,7 +142,7 @@ TheWrightTeam built around a rock-solid one-two punch at the top — Justin Jeff
 
 ## Upper Decky’s — C+
 
-**Projected record:** 7.1-6.9
+**Projected record:** 7-7
 
 Upper Decky's built a roster that looks great on paper and grades out as a middling C+ once you factor in what it actually cost to assemble it. Chase at 1.03 and London at 2.22 is about as safe a WR1-WR2 foundation as you'll find in this league, and pairing that with Javonte Williams and David Montgomery in Rounds 3-4 checks every box for balance. But this team consistently paid retail or worse for its pieces — Burrow at 5.51 as basically a QB2-value pick, and Dalton Kincaid in Round 8 nearly sixty spots ahead of his actual ranking, is the kind of reach that erases the good work done earlier. Jonah Coleman in Round 12 is another case of drafting need over value when better players were sitting on the board. The Golden pickup in Round 11 and Fairbairn as a Round 13 kicker are the lone bright spots of actual draft-capital efficiency. The roster is deep and balanced enough to compete, projecting right around .500, but the manager left real equity on the table by reaching instead of trusting the board.
 
@@ -165,7 +165,7 @@ Upper Decky's built a roster that looks great on paper and grades out as a middl
 
 ## dp3thickums — C
 
-**Projected record:** 6.1-7.9
+**Projected record:** 7-7
 
 dp3thickums did everything "right" on paper and still lands here with a gentleman's C, and the reason is simple: this is the safest, most floor-obsessed roster in the league. Jaxon Smith-Njigba at 1.05 is a fine anchor, but the follow-up of Kyren Williams and Josh Jacobs back-to-back in Rounds 2-3 signals a team building a spreadsheet, not a fantasy juggernaut — steady, unspectacular veteran volume with almost no spike-week equity. Tetairoa McMillan and DJ Moore add more of the same "solid floor, low ceiling" profile. The Caleb Williams reach in Round 6 is the only real swing taken all draft, and it's a passive one at a position with a deep waiver pool. Late-round work salvaged some respectability — Stefon Diggs in Round 10 and Cooper Kupp falling to Round 15 are legitimate value hits — but by then the roster's identity was already locked in. Every need got filled, nothing got maximized. Projected at 6.1-7.9, this team drafted for a division nobody's actually playing in.
 
@@ -188,7 +188,7 @@ dp3thickums did everything "right" on paper and still lands here with a gentlema
 
 ## Chumps — C-
 
-**Projected record:** 5.8-8.2
+**Projected record:** 7-7
 
 The Chumps opened the board about as safely as possible, and that's precisely the problem — James Cook at 1.08 and A.J. Brown at 2.17 are perfectly fine building blocks, but there's nothing here that screams "ceiling." That pattern repeats all draft long: Chris Olave, Tony Pollard, even Jameson Williams as a nice value grab in Round 5 are all solid-floor, low-spike assets, and that upside-vs-floor score of 11 tells the real story of this class. The bench is deep and thoughtfully constructed — Cam Skattebo and Blake Corum give real RB insurance, Denzel Boston and De'Zhaun Stribling are reasonable dart throws late — but reaching for Tucker Kraft in Round 6 and Corum in Round 8 burned capital that could've chased difference-makers. Worse, this team punted the QB position until Mahomes fell to Round 9, and pairing him with Bo Nix as insurance doesn't erase the fact that need coverage lagged all night. Balanced, unspectacular, and projected to finish sub-.500 — the Chumps built a roster that plays it safe and gets punished for it.
 
@@ -211,7 +211,7 @@ The Chumps opened the board about as safely as possible, and that's precisely th
 
 ## Shravan — D+
 
-**Projected record:** 4.3-9.7
+**Projected record:** 6-8
 
 Shravan's class starts about as well as any in the league — Bijan Robinson at 1.1, Trey McBride falling to Round 2, Nico Collins and Garrett Wilson stacked in Rounds 3 and 4 — and then the wheels come off almost immediately. That top four is a legitimate fantasy core, but the plan seems to stop there. Drake Maye in Round 6 is a fine QB2 swing, yet the middle and late rounds turn into a parade of safe, low-ceiling fliers: Rico Dowdle, Rachaad White, Isiah Pacheco, Jacory Croskey-Merritt — a bench full of committee backs with capped upside instead of anyone who profiles as a league-winner. The Jordyn Tyson and Hunter Henry reaches in Rounds 8 and 13 sting because there were far better sleepers on the board. Seattle's defense in Round 10 and Tyler Shough as a Round 15 dart throw show flashes of savvy, but they're not enough to offset a roster that's front-loaded and thin everywhere else. Elite top, empty middle — that's a 4-9 team unless the stars stay healthy all year.
 
@@ -234,7 +234,7 @@ Shravan's class starts about as well as any in the league — Bijan Robinson at 
 
 ## Milky Barn Liquor — D
 
-**Projected record:** 2.7-11.3
+**Projected record:** 5-9
 
 Milky Barn Liquor gets the "D" not because the talent isn't there, but because this manager paid retail on nearly every shelf in the store. Amon-Ra St. Brown at 1.6 is a fine building block, but the very next selection — Quinshon Judkins at pick 19, a player with a 52 ADP — set the tone for a draft where reaches piled up faster than value. Travis Etienne in Round 4 was the lone shrewd grab, actually beating his ADP, and the Texans defense sneaking to Round 13 was a nice piece of thievery. But those bright spots get buried under Mike Washington at pick 102 (ranked 152nd overall) and a Baker Mayfield-Stafford quarterback tandem that reeks of hedging rather than conviction. Positional need coverage is maxed out, sure, but that's cold comfort when the format actively punished this manager for not letting value fall to them. A 2.7-11.3 projection isn't bad luck — it's the mathematical consequence of a draft board ignored.
 
@@ -257,7 +257,7 @@ Milky Barn Liquor gets the "D" not because the talent isn't there, but because t
 
 ## B1G Dumpers — F
 
-**Projected record:** 0.2-13.8
+**Projected record:** 3-11
 
 B1G Dumpers opened the draft looking like world-beaters, snagging Christian McCaffrey at 1.09 and Derrick Henry at 2.16, then landing Josh Allen dead-on ADP in Round 3 — that's about as clean a start as you'll see in this league. But that's where the competence ends. This roster is a wide receiver landfill with zero defense and zero kicker rostered, which alone should be disqualifying for a team calling itself draft-ready. The bench is a bunch of dart throws — Chris Rodriguez, Tyrone Tracy, Jalen Nailor — with no positional need coverage to speak of and no plan beyond "hope the studs stay healthy." George Kittle at pick 81 was a full two rounds ahead of his actual value, an unforced error compounding the roster's imbalance. Yes, Khalil Shakir and Jalen McMillan were genuine late-round steals, proof someone in this draft room can read a cheat sheet, but two smart swings can't offset thirteen rounds of neglect. Projected for 0.2 wins, this team built a Ferrari engine and forgot the wheels.
 

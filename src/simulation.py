@@ -16,7 +16,14 @@ from . import sleeper_client
 logger = logging.getLogger(__name__)
 
 DEFAULT_N_SIMULATIONS = 10_000
-SCORE_STDEV = 12.0  # variance applied to each team's weekly power score
+SCORE_STDEV = 12.0  # random weekly variance applied to each team's power score
+
+# Composite grade scores are a percentile-driven 0-100 scale (see grading.py) --
+# their raw spread has no relationship to a realistic week-to-week fantasy point
+# gap. Rescaling to this target standard deviation before simulating keeps the
+# spread in line with SCORE_STDEV, so a bad draft doesn't imply a ~0-win season
+# and a great draft doesn't imply an undefeated one.
+POWER_SCORE_TARGET_STDEV = 5.0
 
 
 @dataclass
@@ -25,7 +32,10 @@ class ProjectedRecord:
     avg_losses: float
 
     def __str__(self) -> str:
-        return f"{self.avg_wins:.1f}-{self.avg_losses:.1f}"
+        total_games = round(self.avg_wins + self.avg_losses)
+        wins = round(self.avg_wins)
+        losses = total_games - wins
+        return f"{wins}-{losses}"
 
 
 def get_regular_season_weeks(league: dict) -> list[int]:
@@ -79,14 +89,35 @@ def fetch_schedule(league_id: str, weeks: list[int]) -> dict[int, list[tuple[int
     return schedule
 
 
+def rescale_power_scores(power_scores: dict[int, float], target_stdev: float = POWER_SCORE_TARGET_STDEV) -> dict[int, float]:
+    """Rescale power scores to a fixed standard deviation, preserving their mean and rank order.
+
+    Composite grade scores can come out with wildly different spreads depending
+    on how differentiated a given draft was -- rescaling to a fixed target
+    keeps the simulation's win-probability curve consistent run to run.
+    """
+    n = len(power_scores)
+    if n == 0:
+        return {}
+    mean = sum(power_scores.values()) / n
+    variance = sum((s - mean) ** 2 for s in power_scores.values()) / n
+    actual_stdev = variance ** 0.5
+    if actual_stdev == 0:
+        return dict(power_scores)
+    factor = target_stdev / actual_stdev
+    return {rid: mean + (s - mean) * factor for rid, s in power_scores.items()}
+
+
 def simulate_season(
     power_scores: dict[int, float],
     schedule: dict[int, list[tuple[int, int]]],
     n_simulations: int = DEFAULT_N_SIMULATIONS,
     score_stdev: float = SCORE_STDEV,
+    power_score_target_stdev: float = POWER_SCORE_TARGET_STDEV,
     rng: random.Random | None = None,
 ) -> dict[int, ProjectedRecord]:
     rng = rng or random.Random()
+    power_scores = rescale_power_scores(power_scores, power_score_target_stdev)
     total_wins: dict[int, int] = {rid: 0 for rid in power_scores}
     total_games: dict[int, int] = {rid: 0 for rid in power_scores}
 
