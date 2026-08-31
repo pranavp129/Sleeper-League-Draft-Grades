@@ -17,18 +17,21 @@ BALANCE_WEIGHT = 0.20     # roster balance / bench depth
 UPSIDE_WEIGHT = 0.15      # upside vs. floor mix (soft modifier)
 
 # Typical positional distribution for a redraft half-PPR roster, used as the
-# baseline for the balance/bench-depth component.
+# baseline for the balance/bench-depth component. K/DEF are deliberately left
+# out: streaming them off waivers all year instead of drafting them is a
+# legitimate strategy, not a deviation to penalize (shares renormalize to 1.0
+# across the remaining positions).
 TYPICAL_POSITION_SHARE = {
-    "QB": 0.10,
-    "RB": 0.30,
-    "WR": 0.35,
-    "TE": 0.12,
-    "DEF": 0.06,
-    "K": 0.07,
+    "QB": 0.115,
+    "RB": 0.345,
+    "WR": 0.402,
+    "TE": 0.138,
 }
 
 GLARING_GAP_ROUND_THRESHOLD = 8  # a required position with no pick by this round is a gap
-LATE_ROUND_POSITIONS = {"K", "DEF"}  # conventionally drafted last -- exempt from the round threshold
+LATE_ROUND_POSITIONS = {"K", "DEF"}  # conventionally drafted last, or skipped entirely -- see below
+GAP_PENALTY = 0.15  # per missing/late skill-position (QB/RB/WR/TE) gap
+LATE_ROUND_GAP_PENALTY = 0.02  # per skipped K/DEF -- a token ding, not a real penalty
 
 # Ordered worst-to-best is reversed below; index 0 = top grade.
 GRADE_SCALE = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"]
@@ -58,7 +61,8 @@ class TeamGradeResult:
     need_raw: float
     balance_raw: float
     upside_raw: float | None
-    positional_gaps: list[str]
+    positional_gaps: list[str]  # missing/late skill positions (QB/RB/WR/TE) -- real weaknesses
+    punted_positions: list[str]  # K/DEF skipped entirely -- a neutral strategic choice, not a weakness
     best_value_picks: list[PickRecord]
     reaches: list[PickRecord]
     composite_score: float = 0.0
@@ -141,27 +145,29 @@ def _need_component(picks: list[PickRecord], required: dict[str, float]) -> tupl
 
     ratios = []
     gaps = []
+    late_round_gaps = []
     for pos, need in required.items():
         if need <= 0:
             continue
         have = drafted_counts.get(pos, 0)
-        ratios.append(min(have / need, 1.0))
 
         if pos in LATE_ROUND_POSITIONS:
-            # K/DEF are conventionally punted to the final rounds in real drafts --
-            # only flag them as a gap if the team skipped the position entirely.
+            # Skipping K/DEF on draft day is a legitimate strategy (stream off
+            # waivers all year) -- it doesn't factor into the coverage ratio at
+            # all, and only earns a token ding, not a real positional-gap penalty.
             if have == 0:
-                gaps.append(pos)
+                late_round_gaps.append(pos)
             continue
 
+        ratios.append(min(have / need, 1.0))
         first_round = first_round_by_position.get(pos)
         if have == 0 or (first_round is not None and first_round > GLARING_GAP_ROUND_THRESHOLD):
             gaps.append(pos)
 
     coverage = sum(ratios) / len(ratios) if ratios else 1.0
-    gap_penalty = 0.15 * len(gaps)
+    gap_penalty = GAP_PENALTY * len(gaps) + LATE_ROUND_GAP_PENALTY * len(late_round_gaps)
     score = max(coverage - gap_penalty, 0.0)
-    return score, gaps
+    return score, gaps, late_round_gaps
 
 
 def _balance_component(picks: list[PickRecord]) -> float:
@@ -238,7 +244,7 @@ def grade_all_teams(
 
         picks = _team_picks(draft_picks, roster_id, rankings)
         v = _value_component(picks)
-        n, gaps = _need_component(picks, required)
+        n, gaps, punted = _need_component(picks, required)
         b = _balance_component(picks)
         u = _upside_component(picks, adp_stdev_by_sleeper_id)
 
@@ -263,6 +269,7 @@ def grade_all_teams(
             balance_raw=b,
             upside_raw=u,
             positional_gaps=gaps,
+            punted_positions=punted,
             best_value_picks=best_value,
             reaches=reaches,
         )

@@ -26,6 +26,9 @@ voice of a beat writer grading a real draft class: opinionated, specific, no hed
 language ("might", "could potentially", "it's possible that"). Reference concrete \
 picks by name and round. Do not restate the stat line verbatim (e.g. don't just say \
 "they got a B+ and are projected to go 9-5") -- explain the reasoning behind it. \
+If a team punted kicker and/or defense entirely, treat that as a normal, common \
+strategic choice (streaming those positions off waivers all season) -- do not \
+call it a mistake, a hole, or a wound. It's fine to note in passing at most. \
 Write 120-180 words, one paragraph, no headers or bullet points."""
 
 
@@ -46,6 +49,7 @@ def _build_user_prompt(
         f"  {p.name} (Round {p.round}, Pick {p.pick_no}, ranked ~{p.rank:.0f})" for p in grade.reaches
     ) or "  None standout"
     gap_lines = ", ".join(grade.positional_gaps) or "None"
+    punted_lines = ", ".join(grade.punted_positions) or "None"
 
     record_str = str(projected_record)
 
@@ -58,7 +62,8 @@ Grade components (0-100 scale, higher is better):
   Roster balance / bench depth: {grade.normalized_components.get('balance', 0):.0f}
   Upside vs. floor mix: {grade.normalized_components.get('upside', 0):.0f}
 
-Positional gaps: {gap_lines}
+Positional gaps (real weaknesses): {gap_lines}
+Punted positions (skipped by choice, not a weakness -- do not criticize): {punted_lines}
 
 Full pick list:
 {chr(10).join(pick_lines)}
@@ -86,9 +91,14 @@ def _fallback_summary(team_name: str, grade: TeamGradeResult, projected_record) 
         else ""
     )
     gap_bit = f"Notable gaps: {', '.join(grade.positional_gaps)}." if grade.positional_gaps else ""
+    punted_bit = (
+        f"Punted {', '.join(grade.punted_positions)} entirely (a fine strategic choice)."
+        if grade.punted_positions
+        else ""
+    )
     return (
         f"{team_name} drafted to a {grade.letter_grade} grade, projected to finish "
-        f"{projected_record}. {value_bit} {reach_bit} {gap_bit}"
+        f"{projected_record}. {value_bit} {reach_bit} {gap_bit} {punted_bit}"
     ).strip()
 
 
