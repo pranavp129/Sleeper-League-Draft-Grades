@@ -1,56 +1,12 @@
 # just for funsies — 2026 Draft Recap
 
-_Generated 2026-08-31 01:38 UTC_
+_Generated 2026-08-31 04:13 UTC_
 
-## CarolineJ — A+
-
-**Projected record:** 9-5
-
-CarolineJ built the class of the league here, and it starts with the Saquon Barkley-Chase Brown backfield combo that anchors this roster in question-free RB1/RB1b territory — getting Brown as RB15 value in Round 2 is the kind of pick that wins championships. Tetairoa McMillan falling to Round 3 was a gift, and pairing him with a Round 4 Lamar Jackson gives this roster a rare blend of a true field-stretcher at receiver and a top-three quarterback secured after the running back run. The value didn't stop at the top: Stefon Diggs in Round 9 as basically a WR9-caliber talent, and Sam Darnold in Round 14 as a legitimate streaming QB2, are the kind of late-draft thefts that separate good drafts from great ones. Yes, Tucker Kraft and Tyler Allgeier were reaches relative to consensus, but with zero positional gaps and a bench this deep, those swings are luxuries, not liabilities. This is a 9-5 roster with a top-two seed ceiling.
-
-**Picks:**
-- Round 1, Pick 10: Saquon Barkley (RB) (ranked ~17)
-- Round 2, Pick 19: Chase Brown (RB) (ranked ~15)
-- Round 3, Pick 38: Tetairoa McMillan (WR) (ranked ~30)
-- Round 4, Pick 47: Lamar Jackson (QB)
-- Round 5, Pick 66: Christian Watson (WR) (ranked ~56)
-- Round 6, Pick 75: Tucker Kraft (TE) (ranked ~95)
-- Round 7, Pick 94: Jonathon Brooks (RB) (ranked ~90)
-- Round 8, Pick 103: Quentin Johnston (WR) (ranked ~88)
-- Round 9, Pick 122: Stefon Diggs (WR) (ranked ~94)
-- Round 10, Pick 131: Tyler Allgeier (RB) (ranked ~154)
-- Round 11, Pick 150: Cam Little (K) (ranked ~149)
-- Round 12, Pick 159: New England Patriots (DEF) (ranked ~133)
-- Round 13, Pick 178: Juwan Johnson (TE) (ranked ~159)
-- Round 14, Pick 187: Sam Darnold (QB) (ranked ~146)
-
-## Scolvin — A
+## Emily's Team — A+
 
 **Projected record:** 9-5
 
-Scolvin didn't just draft for need, he drafted for domination, and the tape doesn't lie. Landing Ja'Marr Chase at 1.3 sets the tone, but the real story is the value he kept banking round after round — A.J. Brown falling to 2.26 is theft, and pairing him with Breece Hall at 3.31 gives this roster a foundation most managers only dream about. The Drake Maye pick in Round 5 looks shrewd rather than early once you see how the board fell, and by the time he scooped Xavier Worthy in Round 10 and Tre Tucker in Round 14, he was printing free equity every single round. Yes, the TreVeyon Henderson and Eagles defense picks cost him a touch of ADP value, but those are rounding errors against a class this deep. There's no positional gap to nitpick — this is a win-now build with elite floor at every skill spot. The only knock is a lack of true swing-for-the-fences upside, but with talent this concentrated, Scolvin doesn't need lottery tickets. This is a championship-caliber haul.
-
-**Picks:**
-- Round 1, Pick 3: Ja'Marr Chase (WR) (ranked ~4)
-- Round 2, Pick 26: A.J. Brown (WR) (ranked ~18)
-- Round 3, Pick 31: Breece Hall (RB) (ranked ~33)
-- Round 4, Pick 54: TreVeyon Henderson (RB) (ranked ~63)
-- Round 5, Pick 59: Drake Maye (QB) (ranked ~51)
-- Round 6, Pick 82: Kyle Pitts (TE) (ranked ~88)
-- Round 7, Pick 87: DK Metcalf (WR) (ranked ~65)
-- Round 8, Pick 110: Kenny Gainwell (RB) (ranked ~101)
-- Round 9, Pick 115: Philadelphia Eagles (DEF) (ranked ~138)
-- Round 10, Pick 138: Xavier Worthy (WR) (ranked ~100)
-- Round 11, Pick 143: Ka'imi Fairbairn (K) (ranked ~138)
-- Round 12, Pick 166: Kyler Murray (QB) (ranked ~136)
-- Round 13, Pick 171: Brenton Strange (TE) (ranked ~168)
-- Round 14, Pick 194: Tre Tucker (WR) (ranked ~129)
-
-## Emily's Team — A-
-
-**Projected record:** 9-5
-
-Emily's Team walks away with an A- because this is a roster built on discipline, not dice rolls. Cook at 1.09 and Olave at 2.20 is about as textbook as it gets — value roughly matching draft slot while immediately filling RB1/WR1 needs — and the Skattebo-McLaurin-Daniels stretch from Rounds 3-5 shows patience instead of panic. Where this class really separates itself is the bench-building: Deebo Samuel dropping to Round 11 and the Vikings' defense sitting there in Round 14 are legitimate draft-day thefts that most managers in this league missed entirely. Yes, Mark Andrews in Round 7 and Tyjae Spears in Round 10 are reaches given their ranked value, but those are calculated bets on proven pedigree and pass-catching role, not blind hope picks. The tradeoff is an offense that's short on true boom-or-bust ceiling plays — this is a lineup built to hit its median outcome every week rather than explode for 150 points, which caps the grade just shy of the A range despite zero positional holes.
+Emily's Team put together the kind of draft that makes you go back and check the pick order twice, because this is what a top-to-bottom A+ looks like. James Cook at 1.09 anchors the backfield with a true bell-cow, and pairing him with Cam Skattebo in Round 3 and a Round 6 flier on J.K. Dobbins gives this roster a running-back room that can absorb any injury news without blinking. The receiver corps of Chris Olave, Terry McLaurin, and Jayden Reed is as safe as it gets, and the Round 11 heist of Deebo Samuel at pick 149 — nearly 50 spots below his ranking — is the steal of the draft for this squad. Grabbing Jayden Daniels in Round 5 as a QB1 with true upside, then backfilling with Mark Andrews and Hunter Henry at tight end, rounds out a bench that has zero holes. Yes, Andrews and Tyjae Spears cost a touch more than market value, but with this depth and a late-round defense grab in Minnesota that outkicked its coverage, nitpicking feels silly. Projected at 9-5, this team is built to win now and stay stocked all season.
 
 **Picks:**
 - Round 1, Pick 9: James Cook (RB) (ranked ~9)
@@ -68,11 +24,11 @@ Emily's Team walks away with an A- because this is a roster built on discipline,
 - Round 13, Pick 177: Tyler Loop (K) (ranked ~150)
 - Round 14, Pick 188: Minnesota Vikings (DEF) (ranked ~106)
 
-## Anteaters — B+
+## Anteaters — A
 
-**Projected record:** 8-6
+**Projected record:** 9-5
 
-The Anteaters built this roster like a team that knew exactly what it wanted: a bell-cow workhorse in Derrick Henry at 13, then doubled down on the ground game with Omarion Hampton in Round 2 before pivoting to secure Zay Flowers as a true WR1 in Round 3. That's a textbook value-anchored start, and it set the tone for a draft with zero positional holes and one of the deepest benches in the league. David Montgomery and Michael Pittman give this squad legitimate weekly floor, while Dak Prescott falling to Round 8 was an outright gift given his QB1 ceiling. The one knock here is the lack of true difference-making upside outside the Henry/Flowers combo — reaching for George Kittle in Round 6 and Chris Rodriguez in Round 10 speaks to a roster built on safety over swing-for-the-fences ceiling. It's a sturdy, well-constructed 8-6 outfit that should win with consistency rather than explosiveness — solid, unspectacular, and built to make the playoffs rather than dominate them.
+The Anteaters get an A here because this roster has zero soft spots, and that starts with Derrick Henry falling to Pick 13 as a bell-cow anchor before Omarion Hampton doubles down on the ground game one round later. Zay Flowers at 41 gives this team a legitimate alpha receiver, and David Montgomery in Round 4 turns the backfield into a strength that can absorb any bad-luck injury. The Dak Prescott pickup at Pick 100 is the steal of the draft class, a low-end QB1 falling to Round 8 value, and grabbing the Steelers defense in Round 13 is pure gravy. Yes, George Kittle in Round 6 and Chris Rodriguez in Round 10 are reaches relative to ADP, but this manager clearly prioritized proven floor over boom-or-bust dice rolls, and with names like Michael Pittman and Wan'Dale Robinson rounding out the bench, there's no positional gap to exploit. This is a lineup built to win close weeks all season, projected at 9-5 for good reason.
 
 **Picks:**
 - Round 1, Pick 13: Derrick Henry (RB) (ranked ~10)
@@ -90,55 +46,55 @@ The Anteaters built this roster like a team that knew exactly what it wanted: a 
 - Round 13, Pick 181: Pittsburgh Steelers (DEF) (ranked ~135)
 - Round 14, Pick 184: Eddy Pineiro (K) (ranked ~160)
 
-## Meatts Emergency Room 🏥 — B+
+## CarolineJ — A-
+
+**Projected record:** 9-5
+
+CarolineJ walks away with an A- class built on a bell-cow foundation and relentless value hunting. Saquon Barkley and Chase Brown in the first two rounds gives this roster a rushing floor most squads can't touch, and grabbing Lamar Jackson in Round 4 as basically a QB1 luxury pick is the kind of value that swings a season. Tetairoa McMillan at pick 38 is a legitimate WR1-in-waiting stolen a round early, and the Stefon Diggs pickup in Round 9 — WR94 ADP for a proven target-earner — is theft. Yes, Tucker Kraft in Round 6 and Tyler Allgeier in Round 10 are reaches on paper, but both fill real roles rather than dead bench weight. The Sam Darnold flier in Round 14 is pure gravy, a QB2 with spot-start juice for nothing. Positional need coverage is maxed out at 100, and there's no glaring hole anywhere on this roster. The only knock is a bench that leans more floor than ceiling, but with this much proven production up top, projecting 9-5 feels conservative.
+
+**Picks:**
+- Round 1, Pick 10: Saquon Barkley (RB) (ranked ~17)
+- Round 2, Pick 19: Chase Brown (RB) (ranked ~15)
+- Round 3, Pick 38: Tetairoa McMillan (WR) (ranked ~30)
+- Round 4, Pick 47: Lamar Jackson (QB)
+- Round 5, Pick 66: Christian Watson (WR) (ranked ~56)
+- Round 6, Pick 75: Tucker Kraft (TE) (ranked ~95)
+- Round 7, Pick 94: Jonathon Brooks (RB) (ranked ~90)
+- Round 8, Pick 103: Quentin Johnston (WR) (ranked ~88)
+- Round 9, Pick 122: Stefon Diggs (WR) (ranked ~94)
+- Round 10, Pick 131: Tyler Allgeier (RB) (ranked ~154)
+- Round 11, Pick 150: Cam Little (K) (ranked ~149)
+- Round 12, Pick 159: New England Patriots (DEF) (ranked ~133)
+- Round 13, Pick 178: Juwan Johnson (TE) (ranked ~159)
+- Round 14, Pick 187: Sam Darnold (QB) (ranked ~146)
+
+## Scolvin — B+
+
+**Projected record:** 9-5
+
+Scolvin's class is a masterclass in ADP discipline dressed up as a floor-first build, and that's exactly why it lands at B+ instead of the A the top of this roster deserves. Ja'Marr Chase at 1.03 and A.J. Brown falling to 2.26 is about as clean a start as any team in this league can claim, and Breece Hall still sitting at 3.31 is the kind of value that should be illegal. TreVeyon Henderson in Round 4 is a slight reach relative to his ranking, but pairing him with Kenny Gainwell gives this backfield real juice behind Hall. Kyle Pitts in Round 6 and DK Metcalf in Round 7 are both quietly excellent value plays that add ceiling to an already stacked receiving corps, and Xavier Worthy and Tre Tucker as Round 10 and 14 fliers are the kind of late-draft theft that wins leagues. The one knock here is that this roster is almost entirely proven commodities and safe-floor veterans — there's shockingly little swing-for-the-fences upside once you get past the first three rounds, which caps the ceiling even as it raises the floor to a very comfortable 9-5.
+
+**Picks:**
+- Round 1, Pick 3: Ja'Marr Chase (WR) (ranked ~4)
+- Round 2, Pick 26: A.J. Brown (WR) (ranked ~18)
+- Round 3, Pick 31: Breece Hall (RB) (ranked ~33)
+- Round 4, Pick 54: TreVeyon Henderson (RB) (ranked ~63)
+- Round 5, Pick 59: Drake Maye (QB) (ranked ~51)
+- Round 6, Pick 82: Kyle Pitts (TE) (ranked ~88)
+- Round 7, Pick 87: DK Metcalf (WR) (ranked ~65)
+- Round 8, Pick 110: Kenny Gainwell (RB) (ranked ~101)
+- Round 9, Pick 115: Philadelphia Eagles (DEF) (ranked ~138)
+- Round 10, Pick 138: Xavier Worthy (WR) (ranked ~100)
+- Round 11, Pick 143: Ka'imi Fairbairn (K) (ranked ~138)
+- Round 12, Pick 166: Kyler Murray (QB) (ranked ~136)
+- Round 13, Pick 171: Brenton Strange (TE) (ranked ~168)
+- Round 14, Pick 194: Tre Tucker (WR) (ranked ~129)
+
+## God’s favorite frauds — B+
 
 **Projected record:** 8-6
 
-Meatts Emergency Room 🏥 walked away with a B+ because this draft was a masterclass in taking value where it fell and never panicking. Christian McCaffrey at 1.06 is the kind of anchor that makes a roster construction sing, and pairing him with Malik Nabers in Round 2 gives this team two true difference-makers before pick 25. The Waddle-Moore double dip in Rounds 4 and 5 loaded up the receiver corps, while Jakobi Meyers falling to Round 10 was outright theft. The bench got dangerously deep with Rico Dowdle, Harold Fannin, and Aaron Jones providing real handcuff and streaming value, and Chase McLaughlin in Round 14 is as close to free production as kickers get. The one blemish here is the QB room — waiting until Round 9 for Patrick Mahomes as the lone answer is a gamble on health and volume that could backfire in a bye-week crunch. Still, with McCaffrey and Nabers leading a roster this deep, 8-6 feels like a floor, not a ceiling.
-
-**Picks:**
-- Round 1, Pick 6: Christian McCaffrey (RB) (ranked ~7)
-- Round 2, Pick 23: Malik Nabers (WR) (ranked ~26)
-- Round 3, Pick 34: Javonte Williams (RB) (ranked ~34)
-- Round 4, Pick 51: Jaylen Waddle (WR) (ranked ~48)
-- Round 5, Pick 62: DJ Moore (WR) (ranked ~46)
-- Round 6, Pick 79: Rico Dowdle (RB) (ranked ~75)
-- Round 7, Pick 90: Harold Fannin (TE) (ranked ~82)
-- Round 8, Pick 107: Aaron Jones (RB) (ranked ~112)
-- Round 9, Pick 118: Patrick Mahomes (QB) (ranked ~104)
-- Round 10, Pick 135: Jakobi Meyers (WR) (ranked ~87)
-- Round 11, Pick 146: Zach Charbonnet (RB) (ranked ~133)
-- Round 12, Pick 163: Jalen Nailor (WR) (ranked ~151)
-- Round 13, Pick 174: Chicago Bears (DEF) (ranked ~169)
-- Round 14, Pick 191: Chase McLaughlin (K) (ranked ~147)
-
-## Naberhood Watch — B
-
-**Projected record:** 7-7
-
-Naberhood Watch built a roster that's more sturdy than sneaky, and the B grade reflects a draft where nobody got fleeced but nobody got robbed either. Justin Jefferson at Pick 12 is about as safe a foundation as you can lay, and pairing him with Kenneth Walker in Round 2 gives this team a true bell-cow floor at both premium positions. The Tee Higgins and D'Andre Swift picks in Rounds 3 and 4 were priced almost exactly to their ADP — no theft, no overpay, just a manager playing it straight. Where this class earns its stripes is the two-QB value hack: grabbing Matthew Stafford in Round 7 and then doubling down on C.J. Stroud in Round 13 is the kind of draft-capital arbitrage that wins leagues if either passer breaks out. The reach for Isaiah Likely in Round 9 and the Ravens defense a round later sting a bit, but with zero positional gaps and legit RB3/RB4 depth in Rhamondre Stevenson and Kaelon Black, this roster is built to survive bye weeks and injuries without blinking.
-
-**Picks:**
-- Round 1, Pick 12: Justin Jefferson (WR)
-- Round 2, Pick 17: Kenneth Walker (RB) (ranked ~20)
-- Round 3, Pick 40: Tee Higgins (WR) (ranked ~36)
-- Round 4, Pick 45: D'Andre Swift (RB) (ranked ~43)
-- Round 5, Pick 68: Rhamondre Stevenson (RB) (ranked ~63)
-- Round 6, Pick 73: Michael Wilson (WR) (ranked ~75)
-- Round 7, Pick 96: Matthew Stafford (QB) (ranked ~73)
-- Round 8, Pick 101: Dallas Goedert (TE) (ranked ~96)
-- Round 9, Pick 124: Isaiah Likely (TE) (ranked ~136)
-- Round 10, Pick 129: Baltimore Ravens (DEF) (ranked ~167)
-- Round 11, Pick 152: Cyrus Allen (WR) (ranked ~143)
-- Round 12, Pick 157: Kaelon Black (RB) (ranked ~163)
-- Round 13, Pick 180: C.J. Stroud (QB) (ranked ~158)
-- Round 14, Pick 185: Trey Smack (K)
-
-## God’s favorite frauds — B-
-
-**Projected record:** 8-6
-
-God's Favorite Frauds built the safest roster in the league and that's both the compliment and the complaint. Jonathan Taylor at 1.4 and Drake London falling to 2.25 gave this squad a rock-solid floor, and pairing Egbuka with Mike Evans in Rounds 3 and 5 means the receiver corps never has a bad week. But this is a chalk-heavy build — reaching for Tyler Warren in Round 4 and RJ Harvey in Round 6 burned value that better drafters found elsewhere, and outside of the Broncos' defense sliding to Round 10 and Doubs as a nice late flier, there's shockingly little draft-day theft here. The bench is deep and every position is covered, which is why the floor projects to a competitive 8-6, but there's no true league-winner stashed on this roster. This is a team built to make the playoffs, not to dominate them — solid, unspectacular, and painfully predictable.
+God's Favorite Frauds built this roster like a team that knows exactly what it wants, and mostly got it. Jonathan Taylor at the four-spot is about as safe a foundation as you can lay in Round 1, and pairing him with Drake London a round later gives this squad a floor most managers would kill for. Emeka Egbuka and Mike Evans stacked at wide receiver add stability without requiring lottery-ticket outcomes, and Trevor Lawrence in Round 7 is a savvy, low-cost answer at quarterback. The reaches here are minor — Tyler Warren in Round 4 and RJ Harvey in Round 6 both went well ahead of their listed value, but neither pick actively hurts the roster given how deep the depth chart is everywhere else. Denver's defense sliding to Round 10 and Romeo Doubs falling to Round 11 were the real coups of this draft, pure gravy on an already-complete build. The problem is ceiling: this is a lineup constructed for consistency, not weekly explosions, which caps the upside and explains why 8-6 is the projection instead of something gaudier.
 
 **Picks:**
 - Round 1, Pick 4: Jonathan Taylor (RB) (ranked ~6)
@@ -156,11 +112,55 @@ God's Favorite Frauds built the safest roster in the league and that's both the 
 - Round 13, Pick 172: Will Reichard (K) (ranked ~158)
 - Round 14, Pick 193: T.J. Hockenson (TE) (ranked ~177)
 
+## Naberhood Watch — B
+
+**Projected record:** 8-6
+
+Naberhood Watch built this roster the right way: superstar anchor, then relentless coverage of every need. Justin Jefferson at Pick 12 is as safe a WR1 foundation as this league offers, and pairing him with Tee Higgins in Round 3 gives this receiving corps a legitimate 1-2 punch. The backfield got aggressive treatment too, with Kenneth Walker in Round 2 followed by D'Andre Swift and Rhamondre Stevenson stacking usable volume at Rounds 4 and 5 — that's three viable starters before the midpoint of the draft. Where this class really separates itself is the quarterback room: grabbing Stafford in Round 7 and then doubling back for C.J. Stroud in Round 13 is the kind of value-hunting that wins leagues, since either arm alone would be a fine starter. Yes, Isaiah Likely and the Ravens defense came a round or two early, but those are minor overpays in an otherwise deep, balanced build with real ceiling. This team lacks nothing structurally, and an 8-6 projection undersells how much upside is stacked on this bench.
+
+**Picks:**
+- Round 1, Pick 12: Justin Jefferson (WR)
+- Round 2, Pick 17: Kenneth Walker (RB) (ranked ~20)
+- Round 3, Pick 40: Tee Higgins (WR) (ranked ~36)
+- Round 4, Pick 45: D'Andre Swift (RB) (ranked ~43)
+- Round 5, Pick 68: Rhamondre Stevenson (RB) (ranked ~63)
+- Round 6, Pick 73: Michael Wilson (WR) (ranked ~75)
+- Round 7, Pick 96: Matthew Stafford (QB) (ranked ~73)
+- Round 8, Pick 101: Dallas Goedert (TE) (ranked ~96)
+- Round 9, Pick 124: Isaiah Likely (TE) (ranked ~136)
+- Round 10, Pick 129: Baltimore Ravens (DEF) (ranked ~167)
+- Round 11, Pick 152: Cyrus Allen (WR) (ranked ~143)
+- Round 12, Pick 157: Kaelon Black (RB) (ranked ~163)
+- Round 13, Pick 180: C.J. Stroud (QB) (ranked ~158)
+- Round 14, Pick 185: Trey Smack (K)
+
+## Meatts Emergency Room 🏥 — B-
+
+**Projected record:** 7-7
+
+Meatts Emergency Room built this class on discipline, not fireworks, and it shows in a B- that could easily have been higher if not for one glaring omission. Christian McCaffrey at 1.06 is about as safe a foundation as you can draft, and pairing him with Malik Nabers in Round 2 and Jaylen Waddle in Round 4 gives this offense legitimate ceiling at receiver. The Javonte Williams/Rico Dowdle/Aaron Jones/Zach Charbonnet backfield quartet is the definition of bench depth done right, insurance stacked on insurance. But waiting until Round 9 to take a quarterback, and coming away with only Patrick Mahomes as your lone answer, is the kind of decision that will cap this team's ceiling all year. Jakobi Meyers in Round 10 and Chase McLaughlin in Round 14 were quietly excellent value grabs that nobody will remember by Week 8. This is a roster built to grind out 7-7, not to swing for a title, and the QB room is the reason why.
+
+**Picks:**
+- Round 1, Pick 6: Christian McCaffrey (RB) (ranked ~7)
+- Round 2, Pick 23: Malik Nabers (WR) (ranked ~26)
+- Round 3, Pick 34: Javonte Williams (RB) (ranked ~34)
+- Round 4, Pick 51: Jaylen Waddle (WR) (ranked ~48)
+- Round 5, Pick 62: DJ Moore (WR) (ranked ~46)
+- Round 6, Pick 79: Rico Dowdle (RB) (ranked ~75)
+- Round 7, Pick 90: Harold Fannin (TE) (ranked ~82)
+- Round 8, Pick 107: Aaron Jones (RB) (ranked ~112)
+- Round 9, Pick 118: Patrick Mahomes (QB) (ranked ~104)
+- Round 10, Pick 135: Jakobi Meyers (WR) (ranked ~87)
+- Round 11, Pick 146: Zach Charbonnet (RB) (ranked ~133)
+- Round 12, Pick 163: Jalen Nailor (WR) (ranked ~151)
+- Round 13, Pick 174: Chicago Bears (DEF) (ranked ~169)
+- Round 14, Pick 191: Chase McLaughlin (K) (ranked ~147)
+
 ## jlaw18 — C+
 
 **Projected record:** 7-7
 
-jlaw18 lands squarely in "fine, not fun" territory, and the C+ tells the real story: this is a floor-first build with almost no ceiling to dream on. Jeanty at 14 falling to you is a nice value marker, and pairing him with CeeDee Lamb and Garrett Wilson in the second and fourth rounds gives this roster a legitimately safe weekly baseline. But the middle rounds are where the upside got sanded off — Sam LaPorta in Round 6 as a recovery bet and Blake Corum in Round 7 as a change-of-pace flier both landed well below their draft slot buzz suggests, and neither profiles as a league-winner if things break right. Burrow at pick 70 is a solid value QB1 play, and Khalil Shakir plus the Seahawks defense in Rounds 10-11 were legitimate steals relative to ADP. Positional need coverage is maxed out, so there's no glaring hole, but with almost nothing resembling a home-run swing on the bench, 7-7 feels like the realistic ceiling, not the floor.
+jlaw18 built a top-heavy roster that looks great on paper for four rounds and then loses the thread. Ashton Jeanty at 1.14 and CeeDee Lamb at 2.15 is about as safe a foundation as this league offers, and pairing Bucky Irving with Garrett Wilson in Rounds 3-4 gives this team a legitimate weekly floor at the skill positions. Joe Burrow in Round 5 is fine value at QB, but that's essentially where the plan runs out of gas. Sam LaPorta in Round 6 was a reach given his ranking near 124, and Blake Corum a round later compounds the problem by burning a pick on a committee back with no clear path to volume. The Khalil Shakir and Seattle defense grabs in Rounds 10-11 were savvy, low-cost value, but two kickers rostered in Rounds 12-13 is a wasted bench slot this team couldn't afford given how thin the depth chart got after Pick 99. The result is a roster with a real ceiling if the first four picks stay healthy, but almost no margin for error and a bench that won't bail anyone out on a bad week.
 
 **Picks:**
 - Round 1, Pick 14: Ashton Jeanty (RB) (ranked ~24)
@@ -178,33 +178,11 @@ jlaw18 lands squarely in "fine, not fun" territory, and the C+ tells the real st
 - Round 13, Pick 182: Harrison Butker (K) (ranked ~169)
 - Round 14, Pick 183: Kenyon Sadiq (TE)
 
-## Fuckers — C
+## big barkers — C
 
 **Projected record:** 7-7
 
-The Fuckers played it safe from pick one, and that's exactly the problem. Jaxon Smith-Njigba at 7 and George Pickens in Round 2 are fine, unspectacular building blocks, but this is a draft class allergic to risk-taking, and it shows in that ugly 30 upside score. Trey McBride was solid value at 35, but then the reaches start piling up — Jalen Hurts at pick 50 is a full round early, and Woody Marks in Round 9 makes zero sense when the RB shelf was already stocked with Warren, Pollard, and Kamara. That's the real story here: this team hoarded bodies at every position (95 on need coverage, 83 on bench depth) but never once swung for a difference-maker after Round 1. Brock Purdy in Round 10 and Pacheco in Round 13 are nice value plays that deserve credit, but they're compensation for a roster built to avoid embarrassment rather than win a championship. A 7-7 projection feels about right for a team that drafted like it was scared of its own bench.
-
-**Picks:**
-- Round 1, Pick 7: Jaxon Smith-Njigba (WR) (ranked ~5)
-- Round 2, Pick 22: George Pickens (WR) (ranked ~19)
-- Round 3, Pick 35: Trey McBride (TE) (ranked ~38)
-- Round 4, Pick 50: Jalen Hurts (QB) (ranked ~80)
-- Round 5, Pick 63: Jaylen Warren (RB) (ranked ~64)
-- Round 6, Pick 78: Tony Pollard (RB) (ranked ~67)
-- Round 7, Pick 91: Chris Godwin (WR) (ranked ~77)
-- Round 8, Pick 106: Los Angeles Rams (DEF) (ranked ~113)
-- Round 9, Pick 119: Woody Marks (RB) (ranked ~142)
-- Round 10, Pick 134: Brock Purdy (QB) (ranked ~87)
-- Round 11, Pick 147: Jason Myers (K) (ranked ~132)
-- Round 12, Pick 162: Alvin Kamara (RB) (ranked ~158)
-- Round 13, Pick 175: Isiah Pacheco (RB) (ranked ~154)
-- Round 14, Pick 190: Omar Cooper (WR)
-
-## big barkers — C-
-
-**Projected record:** 6-8
-
-Big Barkers get a C- here, and the tape matches the transcript: this is a team that paid retail price for every single asset on the board. De'Von Achane at 1.11 is a fine building block, but reaching for Josh Allen at pick 18 when he was sitting at ADP 33 is the kind of early-round bleed that sinks a class before it starts. Colston Loveland at 39 (ranked 61) and Quinshon Judkins at 46 (ranked 51) compound the issue — good players, bad prices. The roster construction itself is sound: no positional gaps, a deep bench with Brian Thomas, Jordan Addison, and Carnell Tate stacked at receiver, and enough lottery tickets in Keaton Mitchell and Rashid Shaheed to survive injury attrition. But reaches like Mike Washington and Oronde Gadsden late didn't need to happen given the depth still on the board. The Lions defense at pick 186 is the one true heist of the draft. Complete roster, overpaid at almost every stop — 6-8 feels about right.
+Big Barkers land squarely in "fine, not fun" territory, and the C grade tells the real story: this is a roster with zero structural holes but almost no bargains to show for it. Reaching for Achane at 1.11 and Josh Allen at 2.18 is defensible team-building, but paying near-sticker price round after round — Judkins at 51, Colston Loveland at 61 — leaves no margin for error and caps the ceiling. The middle rounds at least show some spine, with Brian Thomas and Carnell Tate giving this offense real receiving juice, and Jordan Addison in Round 7 is a sensible flier. Credit where due: Rashid Shaheed in Round 11 and the Lions defense in Round 14 are legitimate value plucks that beat their ADP by a mile. But Mike Washington and Oronde Gadsden as reaches in Rounds 9-10 undercut that goodwill. This team drafted a complete roster — every box checked, nothing thrilling — and a 7-7 projection feels like the accurate ceiling for a class built on paying full price instead of finding it.
 
 **Picks:**
 - Round 1, Pick 11: De'Von Achane (RB) (ranked ~12)
@@ -222,11 +200,33 @@ Big Barkers get a C- here, and the tape matches the transcript: this is a team t
 - Round 13, Pick 179: Keaton Mitchell (RB) (ranked ~164)
 - Round 14, Pick 186: Detroit Lions (DEF) (ranked ~129)
 
-## saar’s autopicked fryers — C-
+## Fuckers — C-
+
+**Projected record:** 7-7
+
+The Fuckers open with Jaxon Smith-Njigba at 1.07 and George Pickens in Round 2, a fine one-two punch that gives this roster a real receiver floor, and Trey McBride at pick 35 is close to ADP-neutral value at a position where that matters. But things get muddled fast. Jalen Hurts in Round 4 at pick 50 is a full round-plus reach when better value sat on the board, and Woody Marks in Round 9 is the kind of pick that makes you wonder if someone fat-fingered the queue. The Purdy grab in Round 10 and Pacheco falling to Round 13 are legitimate coups that saved this class from itself, but the middle rounds are a running back grab-bag — Warren, Pollard, Kamara, Pacheco — that reads more like darts thrown at a wall than a plan. There's no depth crisis and no punted category to gripe about, but this is a low-ceiling, no-real-star-power-after-round-2 roster that plays like a coin flip every week. 7-7 feels generous.
+
+**Picks:**
+- Round 1, Pick 7: Jaxon Smith-Njigba (WR) (ranked ~5)
+- Round 2, Pick 22: George Pickens (WR) (ranked ~19)
+- Round 3, Pick 35: Trey McBride (TE) (ranked ~38)
+- Round 4, Pick 50: Jalen Hurts (QB) (ranked ~80)
+- Round 5, Pick 63: Jaylen Warren (RB) (ranked ~64)
+- Round 6, Pick 78: Tony Pollard (RB) (ranked ~67)
+- Round 7, Pick 91: Chris Godwin (WR) (ranked ~77)
+- Round 8, Pick 106: Los Angeles Rams (DEF) (ranked ~113)
+- Round 9, Pick 119: Woody Marks (RB) (ranked ~142)
+- Round 10, Pick 134: Brock Purdy (QB) (ranked ~87)
+- Round 11, Pick 147: Jason Myers (K) (ranked ~132)
+- Round 12, Pick 162: Alvin Kamara (RB) (ranked ~158)
+- Round 13, Pick 175: Isiah Pacheco (RB) (ranked ~154)
+- Round 14, Pick 190: Omar Cooper (WR)
+
+## TiAmon-Ra Square — C-
 
 **Projected record:** 6-8
 
-Saar's autopicked fryers left plenty of chips on the table, and that C- reflects a draft where the names sounded fine on paper but the math never worked in this team's favor. Amon-Ra St. Brown at 1.05 is a perfectly sensible anchor, but the value bleeding starts almost immediately — Kyren Williams at 28 and Ladd McConkey at 41 aren't disasters, but the real damage comes from reaches like Jadarian Price at pick 52 (ranked 73rd) and Jake Ferguson at pick 108 (ranked 137th), burning premium-ish capital on players who were sitting on the board rounds later. There's no denying the roster is full — every position box is checked, and the bench has real depth with Matthew Golden and Braelon Allen as a nice zero-cost lottery ticket in Round 14. But floor over ceiling defines this build; outside of Caleb Williams as a late-round QB dart throw, there's little spike-week upside. Competent, complete, and uninspired — a 6-8 team that drafted for a fantasy floor, not a title.
+TiAmon-Ra Square opens with the correct instinct—Amon-Ra St. Brown at 1.05 is a safe, chalky anchor—but the entire class after that pick is a study in paying retail. Kyren Williams at 28 and Ladd McConkey at 41 are fine players taken almost exactly where the market says they should go, which means zero surplus value banked early when it mattered most. Then the reaches start piling up: Jadarian Price at 52 (ranked 73) and Jake Ferguson at 108 (ranked 137) are the kind of picks that leave you thinner everywhere else because you're spending draft capital on players the room wasn't fighting you for. The Houston defense in Round 10 and Braelon Allen in Round 14 are legitimate savvy grabs, but two value hits can't offset a draft where nearly every mid-round selection matched or exceeded consensus cost. Caleb Williams as the lone QB1 swing and Jordan Love as insurance is a sensible approach, yet the overall lack of ADP arbitrage is why this roster projects to a mediocre 6-8 despite a name-brand top of the roster.
 
 **Picks:**
 - Round 1, Pick 5: Amon-Ra St. Brown (WR) (ranked ~8)
@@ -244,33 +244,11 @@ Saar's autopicked fryers left plenty of chips on the table, and that C- reflects
 - Round 13, Pick 173: Jordan Love (QB) (ranked ~153)
 - Round 14, Pick 192: Braelon Allen (RB) (ranked ~154)
 
-## Alvin and the Chipbrocks — D+
-
-**Projected record:** 6-8
-
-Alvin and the Chipbrocks had the easiest pick in the draft with Bijan Robinson at 1.01 and immediately started giving that equity back. Brock Bowers at 28 and Jeremiyah Love at 29 are fine players, but reaching for Jameson Williams at ~40 in Round 4 and Courtland Sutton at ~60 in Round 6 is the kind of ADP-defiance that torches value on the margins. Then the Jordan Mason and MarShawn Lloyd double-dip in Rounds 7 and 8 buries the roster in low-ceiling backfield fodder instead of chasing swing-for-the-fences upside. Waiting until Round 9 to draft Bo Nix and then adding Tyler Shough as a Round 13 flier leaves this team without a real answer at quarterback, which is the single glaring hole nobody addressed with urgency. The bench is deep and the roster is balanced, sure, but balance without difference-makers just means a stack of replacement-level names. This class is safe, uninspired, and light on the boom-or-bust talent needed to actually win leagues, hence the 6-8 projection.
-
-**Picks:**
-- Round 1, Pick 1: Bijan Robinson (RB) (ranked ~2)
-- Round 2, Pick 28: Brock Bowers (TE) (ranked ~43)
-- Round 3, Pick 29: Jeremiyah Love (RB) (ranked ~30)
-- Round 4, Pick 56: Jameson Williams (WR) (ranked ~40)
-- Round 5, Pick 57: Luther Burden (WR) (ranked ~57)
-- Round 6, Pick 84: Courtland Sutton (WR) (ranked ~60)
-- Round 7, Pick 85: Jordan Mason (RB) (ranked ~114)
-- Round 8, Pick 112: MarShawn Lloyd (RB) (ranked ~154)
-- Round 9, Pick 113: Bo Nix (QB) (ranked ~114)
-- Round 10, Pick 140: Cameron Dicker (K) (ranked ~141)
-- Round 11, Pick 141: Jordyn Tyson (WR) (ranked ~156)
-- Round 12, Pick 168: Los Angeles Chargers (DEF) (ranked ~142)
-- Round 13, Pick 169: Tyler Shough (QB) (ranked ~139)
-- Round 14, Pick 196: Kayshon Boutte (WR) (ranked ~164)
-
-## sanj’s minions — D
+## sanj’s minions — D+
 
 **Projected record:** 5-9
 
-Sanj's Minions get a D here, and the tape doesn't lie — this is a class where the process never matched the resources spent. Jahmyr Gibbs at 1.02 is the correct pick, no argument, but from there the reaches pile up fast. Rashee Rice at 3.30 (ranked ~17) is a full round-plus early, and Davante Adams at 4.55 costs a premium pick for a WR3 profile at this stage of his career. Then came the head-scratchers: Dalton Kincaid in Round 7 and Tyrone Tracy in Round 9 both went dramatically ahead of their actual value, burning capital that should've chased upside or depth. The roster is stacked positionally — no glaring holes, plenty of bench bodies — but "balanced" doesn't mean "well-built" when nearly every pick from Round 2 on cost more than it should have. Baker Mayfield in Round 12 and Dylan Sampson in Round 14 are nice, savvy late grabs, but two value hits can't offset a draft where value bled out of almost every other selection. A 5-9 projection feels generous given how far underwater this class is on draft capital efficiency.
+Sanj's Minions opened about as well as you can, snagging Jahmyr Gibbs at the 1.02 and following it with DeVonta Smith and Rashee Rice back-to-back in Rounds 2 and 3 — a foundation that should be a top-tier core. But this is where the good vibes stop, because from Round 4 on this GM paid full sticker price for everything on the shelf. Davante Adams in Round 4 as a WR3, Chuba Hubbard as your RB2 insurance, Justin Herbert as a QB1 in Round 6 — none of it is bad, but none of it is a discount either. Then the reaches start piling up: Dalton Kincaid in Round 7 and Tyrone Tracy in Round 9 both went well ahead of their actual ranks, burning capital that could've built more depth or upside. Baker Mayfield and Dylan Sampson as late fliers show a pulse, but the overall class reads as chalk-heavy and top-loaded, with zero value banked anywhere else on the board. Talented roster, uninspired process — 5-9 feels about right.
 
 **Picks:**
 - Round 1, Pick 2: Jahmyr Gibbs (RB) (ranked ~2)
@@ -288,11 +266,33 @@ Sanj's Minions get a D here, and the tape doesn't lie — this is a class where 
 - Round 13, Pick 170: Travis Hunter (WR) (ranked ~166)
 - Round 14, Pick 195: Dylan Sampson (RB) (ranked ~169)
 
+## Lotta B’s Lotta J’s — D
+
+**Projected record:** 4-10
+
+Lotta B's Lotta J's opens strong with Bijan Robinson at 1.01, a no-brainer floor-and-ceiling anchor, and the Brock Bowers fall to Round 2 is the kind of gift you take and run with. But the wheels come off fast after that. Jeremiyah Love in Round 3 is a fine developmental piece, yet the receiver room of Jameson Williams, Luther Burden, and Courtland Sutton reads more "collection of names" than "cohesive plan," and none of them separate from the pack as a true difference-maker. Then the reaches: Jordan Mason in Round 7 and MarShawn Lloyd in Round 8 are both drafted well ahead of where the market values them, burning premium capital on committee backs. Worse, this roster waited until Round 9 to take a quarterback, and Bo Nix isn't the answer to erase that self-inflicted wound. Tyler Shough and Kayshon Boutte late are savvy value grabs, but they're band-aids, not fixes. Deep bench, shallow ceiling — a 4-10 outfit that reached when it should have needed and needed when it should have reached.
+
+**Picks:**
+- Round 1, Pick 1: Bijan Robinson (RB) (ranked ~2)
+- Round 2, Pick 28: Brock Bowers (TE) (ranked ~43)
+- Round 3, Pick 29: Jeremiyah Love (RB) (ranked ~30)
+- Round 4, Pick 56: Jameson Williams (WR) (ranked ~40)
+- Round 5, Pick 57: Luther Burden (WR) (ranked ~57)
+- Round 6, Pick 84: Courtland Sutton (WR) (ranked ~60)
+- Round 7, Pick 85: Jordan Mason (RB) (ranked ~114)
+- Round 8, Pick 112: MarShawn Lloyd (RB) (ranked ~154)
+- Round 9, Pick 113: Bo Nix (QB) (ranked ~114)
+- Round 10, Pick 140: Cameron Dicker (K) (ranked ~141)
+- Round 11, Pick 141: Jordyn Tyson (WR) (ranked ~156)
+- Round 12, Pick 168: Los Angeles Chargers (DEF) (ranked ~142)
+- Round 13, Pick 169: Tyler Shough (QB) (ranked ~139)
+- Round 14, Pick 196: Kayshon Boutte (WR) (ranked ~164)
+
 ## bay area failing startups — F
 
-**Projected record:** 3-11
+**Projected record:** 4-10
 
-Bay Area Failing Startups lived up to the name here, torching value on paper while somehow building a roster that can't function on Sundays. Puka Nacua at 1.08 and Josh Jacobs falling into Round 6 are the kind of picks that look great in a vacuum, and Jalen McMillan in Round 14 is outright theft. But this team drafted like ADP sheets were the only document that mattered, ignoring the actual construction of a fantasy roster. There is no quarterback until Jared Goff shows up in Round 9, no kicker, no defense, and a receiver room so bloated — Nacua, Collins, Odunze, Lemon, Stribling, Lane, Washington, McMillan — that it borders on parody. Meanwhile Travis Kelce at 105 is a corpse being paid TE1 draft capital. This is a team built by someone who fell in love with talent and forgot the sport has positional requirements. A 3-11 projection is generous for a roster this lopsided.
+Bay Area Failing Startups gets an F, and it's not because this GM doesn't know talent — Puka Nacua at 1.8 and Josh Jacobs falling into Round 6 are legitimate heists, and Jalen McMillan in the 14th is the kind of dart-throw that actually connects. The problem is roster construction: this team drafted like it was building a WR corps for a 20-team dynasty league, not a 14-round redraft. Nacua, Collins, Odunze, Lemon, Stribling, Lane, Washington, McMillan — eight wideouts, and only one quarterback, Jared Goff, taken in Round 9 as a total afterthought. That's a fatal flaw, not a punt like skipping kicker or defense. Travis Kelce in Round 8 was a full round early for a TE trending toward touchdown-or-bust volatility, and Makai Lemon in Round 7 ignored a QB-starved roster for WR depth nobody needed. The bench is bloated with fringe options while the most important position on the roster is a one-man band. Projected at 4-10, this team drafted talent but not a team.
 
 **Picks:**
 - Round 1, Pick 8: Puka Nacua (WR) (ranked ~3)
