@@ -420,63 +420,59 @@ def build_dynasty_rankings(
     all_players: dict,
     num_qbs: int = 1,
     ppr: float = 0.5,
+    rookie_only: bool = False,
 ) -> tuple[dict[str, RankedPlayer], bool]:
     """Build the sleeper_id -> RankedPlayer table for dynasty grading.
 
-    Same manual-CSV-override/fallback shape as build_rankings, but the live
-    source is FantasyCalc's dynasty values rather than FFC's (too-thin) dynasty
-    ADP. Returns (rankings_by_sleeper_id, live_pull_succeeded).
-    """
-    team_abbrev_to_def_id = build_team_abbrev_to_def_id(all_players)
+    Live source is FantasyCalc's dynasty values (not FFC's too-thin dynasty
+    ADP). Returns (rankings_by_sleeper_id, live_pull_succeeded).
 
+    When rookie_only=True (a rookie-only supplemental draft, not a startup),
+    FantasyCalc's `overallRank` can't be used directly -- it ranks a rookie
+    against the *entire* dynasty universe including established veterans, so
+    even the consensus top rookie prospect shows a rank like 40-60, making
+    every single rookie-draft pick look like a wild reach when compared
+    against a small 1-36 pick_no scale. Rookies are filtered out (maybeYoe==0)
+    and re-ranked 1..N among just each other, which is the scale that's
+    actually comparable to a rookie draft's pick numbers.
+
+    data/rankings.csv is NOT applied here -- its ranks are redraft-ADP-shaped
+    (see build_rankings), and merging them into dynasty values would silently
+    mix incompatible scales for whatever single player it happens to cover.
+    """
     live_matched: list[RankedPlayer] = []
     live_pull_succeeded = True
 
     try:
         raw_values = fetch_fantasycalc_dynasty_values(team_count=team_count, num_qbs=num_qbs, ppr=ppr)
+        entries = []
         for entry in raw_values:
             player = entry.get("player") or {}
             position = player.get("position")
             if position not in {"QB", "RB", "WR", "TE"}:
                 continue  # "PICK" entries (e.g. "2027 1st") -- Sleeper drafts are always real players
-            sleeper_id = player.get("sleeperId")
-            rank = entry.get("overallRank")
-            if not sleeper_id or rank is None:
+            if rookie_only and player.get("maybeYoe") != 0:
                 continue
+            if not player.get("sleeperId") or entry.get("overallRank") is None:
+                continue
+            entries.append((player, entry))
+
+        # FantasyCalc's list already comes sorted best-to-worst; re-ranking 1..N
+        # after filtering keeps that order but rescales it to just the subset.
+        for rank, (player, entry) in enumerate(entries, start=1):
             live_matched.append(
                 RankedPlayer(
-                    sleeper_id=str(sleeper_id),
-                    position=position,
-                    rank=float(rank),
+                    sleeper_id=str(player["sleeperId"]),
+                    position=player.get("position"),
+                    rank=float(rank) if rookie_only else float(entry["overallRank"]),
                     name=player.get("name", ""),
                     source="dynasty_fc",
                     age=player.get("maybeAge"),
                 )
             )
     except Exception as exc:  # noqa: BLE001 - degrade gracefully, never crash the run
-        logger.warning(
-            "Live FantasyCalc dynasty pull failed (%s); falling back to manual rankings.csv only.", exc
-        )
+        logger.warning("Live FantasyCalc dynasty pull failed (%s).", exc)
         live_pull_succeeded = False
 
-    try:
-        crosswalk_rows = fetch_dynastyprocess_crosswalk()
-    except Exception:  # noqa: BLE001
-        crosswalk_rows = []
-
-    manual_rows = load_manual_rankings()
-    manual_matched, manual_unmatched = match_manual_rankings_to_sleeper_ids(
-        manual_rows, crosswalk_rows, team_abbrev_to_def_id
-    )
-    if manual_unmatched:
-        logger.warning("%d manual rankings.csv entries could not be matched:", len(manual_unmatched))
-        for row in manual_unmatched:
-            logger.warning("  unmatched: %s", row.get("player_name"))
-
-    rankings: dict[str, RankedPlayer] = {}
-    for rp in live_matched:
-        rankings[rp.sleeper_id] = rp
-    for rp in manual_matched:
-        rankings[rp.sleeper_id] = rp
-
+    rankings: dict[str, RankedPlayer] = {rp.sleeper_id: rp for rp in live_matched}
     return rankings, live_pull_succeeded

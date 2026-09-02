@@ -44,7 +44,13 @@ reach, and a declining veteran taken at "good value" relative to ADP can still \
 be a bad long-term asset -- weigh both. Praise teams that accumulated youth and \
 draft capital even if it costs immediate production; flag teams that paid up \
 for aging veterans even if those picks look fine by this year's output alone. \
-Reference player ages where given -- they're central to a dynasty grade."""
+Also weigh team fit and timeline: a rebuilding roster taking on aging win-now \
+vets is a worse fit than the same value spent on youth, and vice versa for a \
+team that's clearly contending now -- infer this from the ages and quality of \
+the picks made. Do NOT comment on "positional needs," "roster balance," or \
+lineup construction -- dynasty rosters get addressed through trades across \
+multiple years, not filled out on any single draft night. Reference player \
+ages where given -- they're central to a dynasty grade."""
 
 DYNASTY_ROOKIE_ONLY_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT + """ This is a DYNASTY league's \
 ROOKIE-ONLY supplemental draft -- not a startup. Teams already have a full veteran \
@@ -82,11 +88,13 @@ def _build_user_prompt(
     adp_label = "dynasty ADP" if is_dynasty else "this year's ADP"
     upside_label = "Roster youth / long-term upside" if is_dynasty else "Upside vs. floor mix"
 
-    if is_rookie_only_draft:
-        components_block = f"  Value captured vs. {adp_label}: {grade.normalized_components.get('value', 0):.0f}\n  {upside_label}: {grade.normalized_components.get('upside', 0):.0f}"
+    if is_dynasty:
+        # Dynasty grades on value + youth only -- need/balance don't apply (see grading.py).
+        components_block = (
+            f"  Value captured vs. {adp_label}: {grade.normalized_components.get('value', 0):.0f}\n"
+            f"  {upside_label}: {grade.normalized_components.get('upside', 0):.0f}"
+        )
         gaps_block = ""
-        format_line = "League format: Dynasty -- ROOKIE-ONLY supplemental draft (not a startup)"
-        record_line = "" if not projected_record else f"\nProjected regular-season record: {projected_record} -- treat cautiously, this reflects only the rookie class, not their full roster"
     else:
         gap_lines = ", ".join(grade.positional_gaps) or "None"
         components_block = (
@@ -96,6 +104,11 @@ def _build_user_prompt(
             f"  {upside_label}: {grade.normalized_components.get('upside', 0):.0f}"
         )
         gaps_block = f"\nPositional gaps (real weaknesses): {gap_lines}"
+
+    if is_rookie_only_draft:
+        format_line = "League format: Dynasty -- ROOKIE-ONLY supplemental draft (not a startup)"
+        record_line = "" if not projected_record else f"\nProjected regular-season record: {projected_record} -- treat cautiously, this reflects only the rookie class, not their full roster"
+    else:
         format_line = f"League format: {'Dynasty' if is_dynasty else 'Redraft'}"
         record_line = f"\nProjected regular-season record: {projected_record}"
 

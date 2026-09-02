@@ -125,6 +125,7 @@ def main() -> None:
         logger.info("Building rankings (FantasyCalc dynasty values, numQbs=%d, ppr=%s)...", num_qbs, ppr)
         ranking_table, live_adp_succeeded = rankings.build_dynasty_rankings(
             team_count=team_count, all_players=all_players, num_qbs=num_qbs, ppr=ppr,
+            rookie_only=is_rookie_only_draft,
         )
     else:
         logger.info("Building rankings (FFC half-ppr ADP + DynastyProcess crosswalk)...")
@@ -152,7 +153,7 @@ def main() -> None:
         league=league,
         rankings=ranking_table,
         upside_metric_by_sleeper_id=upside_metric_by_sleeper_id,
-        is_rookie_only_draft=is_rookie_only_draft,
+        league_format=args.format,
     )
 
     schedule_unavailable = False
