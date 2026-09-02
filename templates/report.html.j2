@@ -238,8 +238,11 @@
     <p class="subtitle">{{ year }} Season &middot; Draft Recap</p>
   </header>
 
-  {% if live_adp_failed or scoring_warning or schedule_unavailable %}
+  {% if live_adp_failed or scoring_warning or schedule_unavailable or is_rookie_only_draft %}
   <div class="notices">
+    {% if is_rookie_only_draft %}
+    <p class="notice">This was a rookie-only supplemental draft, not a startup — grades reflect the value and youth of this rookie class only (each team's existing roster isn't visible here), and projected records are omitted since a rookie class alone doesn't represent team strength.</p>
+    {% endif %}
     {% if value_grading_skipped %}
     <p class="notice">Live ADP pull failed this run and no <code>data/rankings.csv</code> was available — the value/rank grading component was skipped entirely.</p>
     {% elif live_adp_failed %}

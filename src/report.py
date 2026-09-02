@@ -86,6 +86,15 @@ def render_markdown(context: dict, output_path: Path | None = None, slug: str | 
         "",
     ]
 
+    if context.get("is_rookie_only_draft"):
+        lines.append(
+            "> **Note:** this was a rookie-only supplemental draft, not a startup — grades "
+            "reflect the value and youth of this rookie class only (each team's existing "
+            "roster isn't visible here), and projected records are omitted since a rookie "
+            "class alone doesn't represent team strength."
+        )
+        lines.append("")
+
     if context.get("value_grading_skipped"):
         lines.append(
             "> **Note:** the live ADP pull failed this run and no `data/rankings.csv` was "

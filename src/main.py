@@ -101,6 +101,19 @@ def main() -> None:
     draft_picks = sleeper_client.get_draft_picks(draft["draft_id"])
     logger.info("Loaded draft %s with %d picks.", draft["draft_id"], len(draft_picks))
 
+    # Sleeper's own draft.settings.player_type: 0 = veteran/full pool, 1 = rookie-only.
+    # A rookie-only draft in an ongoing dynasty league only touches a handful of picks
+    # per team -- need/balance and the season simulation don't mean the same thing here.
+    # Only relevant in dynasty mode; redraft drafts are always the full player pool.
+    is_rookie_only_draft = args.format == "dynasty" and draft.get("settings", {}).get("player_type") == 1
+    if is_rookie_only_draft:
+        logger.info(
+            "Detected a rookie-only supplemental draft (%d rounds) -- grading on value + "
+            "youth only, and skipping the season simulation (it isn't measuring the "
+            "team's actual roster).",
+            draft.get("settings", {}).get("rounds", 0),
+        )
+
     logger.info("Loading Sleeper player dump (cached up to 24h)...")
     all_players = sleeper_client.get_all_players(force_refresh=args.force_refresh)
 
@@ -139,23 +152,31 @@ def main() -> None:
         league=league,
         rankings=ranking_table,
         upside_metric_by_sleeper_id=upside_metric_by_sleeper_id,
+        is_rookie_only_draft=is_rookie_only_draft,
     )
 
-    logger.info("Simulating season...")
-    weeks = simulation.get_regular_season_weeks(league)
-    schedule = simulation.fetch_schedule(league_id, weeks)
-    schedule_unavailable = schedule is None
-
+    schedule_unavailable = False
     projected_records: dict[int, simulation.ProjectedRecord | str] = {}
-    if schedule_unavailable:
-        logger.warning("Season schedule not available yet -- projected records will be omitted.")
+    if is_rookie_only_draft:
+        # composite_score here reflects only this rookie class, not the team's actual
+        # roster strength -- simulating a season on it would be measuring the wrong thing.
         for roster_id in grades:
             projected_records[roster_id] = ""
     else:
-        power_scores = build_power_scores(grades)
-        projected_records = simulation.simulate_season(
-            power_scores=power_scores, schedule=schedule, n_simulations=args.n_sims
-        )
+        logger.info("Simulating season...")
+        weeks = simulation.get_regular_season_weeks(league)
+        schedule = simulation.fetch_schedule(league_id, weeks)
+        schedule_unavailable = schedule is None
+
+        if schedule_unavailable:
+            logger.warning("Season schedule not available yet -- projected records will be omitted.")
+            for roster_id in grades:
+                projected_records[roster_id] = ""
+        else:
+            power_scores = build_power_scores(grades)
+            projected_records = simulation.simulate_season(
+                power_scores=power_scores, schedule=schedule, n_simulations=args.n_sims
+            )
 
     logger.info("Generating recap paragraphs...")
     api_key = os.environ.get("ANTHROPIC_API_KEY")
@@ -169,7 +190,7 @@ def main() -> None:
     else:
         paragraphs = narrative.generate_all_paragraphs(
             api_key=api_key, grades=grades, projected_records=projected_records, model=args.model,
-            league_format=args.format,
+            league_format=args.format, is_rookie_only_draft=is_rookie_only_draft,
         )
 
     teams_context = []
@@ -201,6 +222,7 @@ def main() -> None:
     context = {
         "league_name": league.get("name", "Fantasy League"),
         "league_format": args.format,
+        "is_rookie_only_draft": is_rookie_only_draft,
         "year": args.year,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "teams": teams_context,

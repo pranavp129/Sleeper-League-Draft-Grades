@@ -16,6 +16,15 @@ NEED_WEIGHT = 0.25        # positional need coverage
 BALANCE_WEIGHT = 0.20     # roster balance / bench depth
 UPSIDE_WEIGHT = 0.15      # upside vs. floor mix (soft modifier)
 
+# A rookie-only supplemental draft (dynasty leagues run these most offseasons,
+# separate from the one-time startup) touches only a handful of picks per team
+# -- need coverage and roster balance are meaningless against a full-roster
+# template when a team might have made just 1-2 picks, and would really just
+# be measuring how many picks a team had (a function of trades, not skill).
+# Their weight folds into value + upside instead.
+ROOKIE_ONLY_VALUE_WEIGHT = 0.70
+ROOKIE_ONLY_UPSIDE_WEIGHT = 0.30
+
 # Typical positional distribution for a redraft half-PPR roster, used as the
 # baseline for the balance/bench-depth component. K/DEF are deliberately left
 # out: streaming them off waivers all year instead of drafting them is a
@@ -230,6 +239,7 @@ def grade_all_teams(
     league: dict,
     rankings: dict,
     upside_metric_by_sleeper_id: dict[str, float] | None = None,
+    is_rookie_only_draft: bool = False,
 ) -> dict[int, TeamGradeResult]:
     upside_metric_by_sleeper_id = upside_metric_by_sleeper_id or {}
     roster_positions = league.get("roster_positions", [])
@@ -276,7 +286,9 @@ def grade_all_teams(
             need_raw=n,
             balance_raw=b,
             upside_raw=u,
-            positional_gaps=gaps,
+            # A partial rookie-only class isn't meaningfully missing "positions" --
+            # the team's actual roster (mostly untouched veterans) isn't visible here.
+            positional_gaps=[] if is_rookie_only_draft else gaps,
             punted_positions=punted,
             best_value_picks=best_value,
             reaches=reaches,
@@ -287,13 +299,22 @@ def grade_all_teams(
     balance_norm = _normalize(balance_raw)
     upside_norm = _normalize(upside_raw)
 
+    if is_rookie_only_draft:
+        value_weight, need_weight, balance_weight, upside_weight = (
+            ROOKIE_ONLY_VALUE_WEIGHT, 0.0, 0.0, ROOKIE_ONLY_UPSIDE_WEIGHT,
+        )
+    else:
+        value_weight, need_weight, balance_weight, upside_weight = (
+            VALUE_WEIGHT, NEED_WEIGHT, BALANCE_WEIGHT, UPSIDE_WEIGHT,
+        )
+
     composite_by_roster: dict[int, float] = {}
     for roster_id, result in results.items():
         composite = (
-            VALUE_WEIGHT * value_norm[roster_id]
-            + NEED_WEIGHT * need_norm[roster_id]
-            + BALANCE_WEIGHT * balance_norm[roster_id]
-            + UPSIDE_WEIGHT * upside_norm[roster_id]
+            value_weight * value_norm[roster_id]
+            + need_weight * need_norm[roster_id]
+            + balance_weight * balance_norm[roster_id]
+            + upside_weight * upside_norm[roster_id]
         )
         result.composite_score = composite
         result.normalized_components = {

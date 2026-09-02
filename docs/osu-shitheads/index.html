@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSU shitheads — 2026 Draft Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mv-black:    #0B0B0C;
+    --mv-grey-900: #1D1D20;
+    --mv-grey-700: #333338;
+    --mv-grey-600: #6B6B70;
+    --mv-grey-300: #C7C7CC;
+    --mv-white:    #F5F5F2;
+    --mv-gold:     #D4A72C;
+    --mv-gold-dim: #8C7222;
+
+    --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--mv-black);
+    color: var(--mv-white);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--mv-gold); }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 0 3rem;
+  }
+
+  header.masthead {
+    padding: 2.5rem 1.25rem 1.75rem;
+    text-align: center;
+    border-bottom: 3px solid var(--mv-gold);
+  }
+
+  header.masthead .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mv-gold);
+    margin: 0 0 0.5rem;
+  }
+
+  header.masthead h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0 0 0.35rem;
+    color: var(--mv-white);
+  }
+
+  header.masthead .subtitle {
+    color: var(--mv-grey-300);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .notices {
+    margin: 1.5rem 1.25rem 0;
+  }
+
+  .notice {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--mv-grey-300);
+    background: var(--mv-grey-900);
+    border-left: 3px solid var(--mv-gold-dim);
+    padding: 0.75rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 0.6rem;
+  }
+
+  .teams {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem 0;
+  }
+
+  .team-card {
+    background: var(--mv-grey-900);
+    border: 1px solid var(--mv-grey-700);
+    border-radius: 6px;
+    padding: 1.5rem 1.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .team-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--mv-white);
+    margin: 0;
+  }
+
+  .owner-name {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--mv-grey-600);
+    margin: 0.15rem 0 0;
+  }
+
+  .grade-stamp {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.25rem;
+    height: 4.25rem;
+    border: 3px solid var(--mv-gold);
+    border-radius: 50%;
+    color: var(--mv-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    transform: rotate(-8deg);
+    background: rgba(212, 167, 44, 0.06);
+    animation: stamp-in 0.4s ease-out;
+  }
+
+  @keyframes stamp-in {
+    0%   { transform: rotate(-8deg) scale(1.6); opacity: 0; }
+    70%  { transform: rotate(-8deg) scale(0.94); opacity: 1; }
+    100% { transform: rotate(-8deg) scale(1); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grade-stamp { animation: none; }
+  }
+
+  .record-line {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--mv-gold);
+    letter-spacing: 0.02em;
+    margin: 0 0 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--mv-grey-700);
+  }
+
+  .record-line .label {
+    color: var(--mv-grey-600);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 0.5rem;
+  }
+
+  .paragraph {
+    font-size: 0.98rem;
+    color: var(--mv-white);
+    margin: 0 0 1.1rem;
+  }
+
+  details.picks {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--mv-grey-300);
+  }
+
+  details.picks summary {
+    cursor: pointer;
+    color: var(--mv-gold-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .pick-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--mv-grey-700);
+  }
+
+  .pick-row:last-child { border-bottom: none; }
+
+  .pick-row .pick-no { color: var(--mv-grey-600); min-width: 3.5rem; }
+  .pick-row .pick-name { flex: 1; color: var(--mv-white); font-family: var(--font-body); }
+  .pick-row .pick-pos { color: var(--mv-grey-300); }
+  .pick-row .pick-value.positive { color: #7BBF6A; }
+  .pick-row .pick-value.negative { color: #C25B4A; }
+
+  footer.site-footer {
+    text-align: center;
+    padding: 2.5rem 1.25rem 1rem;
+    color: var(--mv-grey-600);
+    font-size: 0.78rem;
+  }
+
+  footer.site-footer a { color: var(--mv-gold-dim); }
+
+  @media (min-width: 640px) {
+    header.masthead h1 { font-size: 2.4rem; }
+    .team-card { padding: 1.85rem 2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <p class="eyebrow">Post-Draft Report Card</p>
+    <h1>OSU shitheads</h1>
+    <p class="subtitle">2026 Season &middot; Draft Recap</p>
+  </header>
+
+  
+  <div class="notices">
+    
+    <p class="notice">This was a rookie-only supplemental draft, not a startup — grades reflect the value and youth of this rookie class only (each team's existing roster isn't visible here), and projected records are omitted since a rookie class alone doesn't represent team strength.</p>
+    
+    
+    
+    
+  </div>
+  
+
+  <div class="teams">
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">2 Girls 1 Kupp</h2>
+          <p class="owner-name">shaus0909</p>
+        </div>
+        <div class="grade-stamp">A+</div>
+      </div>
+
+      
+
+      <p class="paragraph">2 Girls 1 Kupp walked into this supplemental draft with a single first-round selection and used it exactly how a true asset-hoarder should — banking on ceiling over consensus. Jordyn Tyson at 1.05 looks aggressive next to his ~57 overall dynasty ADP, but that&#39;s the point: this team isn&#39;t drafting off a big board, it&#39;s drafting off conviction, and at 22 years old Tyson still has a five-to-seven year runway to pay that price back tenfold. There&#39;s no wasted capital here, no hedge picks burned on marginal Day 3 fliers just to fill out a page — one selection, one bet, fully aligned with a long-term build. Punting kicker and defense here is a non-issue since this is a rookie-only sheet anyway. With youth</p>
+
+      <details class="picks">
+        <summary>Full pick list (1)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.5</span>
+          <span class="pick-name">Jordyn Tyson</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-52</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Tierra Del Dulce</h2>
+          <p class="owner-name">jayissarap</p>
+        </div>
+        <div class="grade-stamp">A</div>
+      </div>
+
+      
+
+      <p class="paragraph">Tierra Del Dulce walked away from this supplemental class with exactly two picks and zero interest in complicating the ledger — just stack receiver capital and go home. Carnell Tate at 1.03 is the headline, and while the ADP data says he was priced closer to 41st overall league-wide, that gap says more about a shallow, top-heavy rookie pool than it does about a bad process; Tate at 22 still gives you a Round 1 body with route-running polish and a runway to develop. The Malachi Fields pick in Round 2 is the tougher sell on paper — WR143 dynasty ADP at pick 15 of that round is a real reach, and at 23 years old he doesn&#39;t carry the same developmental cushion Tate does — but taken together, this is a two-for-two swing at a single position with real athletic upside on top. Punting kicker and defense in a rookie-only supplemental is irrelevant noise; nobody&#39;s building through that here. Grade: A, because the youth and upside outweigh the price paid on Fields.</p>
+
+      <details class="picks">
+        <summary>Full pick list (2)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.3</span>
+          <span class="pick-name">Carnell Tate</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-38</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.15</span>
+          <span class="pick-name">Malachi Fields</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-128</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Buncha Bums</h2>
+          <p class="owner-name">ClevelandVsEveryone</p>
+        </div>
+        <div class="grade-stamp">A-</div>
+      </div>
+
+      
+
+      <p class="paragraph">Buncha Bums walk away with an A- here, and it&#39;s almost entirely about volume and value rather than star power. Landing Jadarian Price at 1.02 for a player with a ~32 overall dynasty ranking is the kind of price-to-rank gap that makes a class before anything else happens, and the run of Kenyon Sadiq, Fernando Mendoza, and De&#39;Zhaun Stribling at picks 9, 10, and 11 is a haul of three players who all grade out in the 84-95 range landing at premium spots in the same round. The back half is where the shine wears off a little — Emmett Johnson and Kaelon Black both go off the board well ahead of their ~121 and ~147 rankings, and Black in particular is a 25-year-old back with a shrinking developmental runway. That&#39;s the tension in this class: the top of the draft was an efficiency clinic, but the depth picks lean older and thinner on long-term equity, which caps the youth score even as the value score carries the letter grade. Punting kicker and defense is a non-issue in a rookie-only pool like this.</p>
+
+      <details class="picks">
+        <summary>Full pick list (7)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.2</span>
+          <span class="pick-name">Jadarian Price</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-30</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.9</span>
+          <span class="pick-name">Kenyon Sadiq</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-78</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.10</span>
+          <span class="pick-name">Fernando Mendoza</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-85</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.11</span>
+          <span class="pick-name">De&#39;Zhaun Stribling</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-73</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.14</span>
+          <span class="pick-name">Mike Washington</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-88</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.21</span>
+          <span class="pick-name">Emmett Johnson</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-100</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.22</span>
+          <span class="pick-name">Kaelon Black</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-125</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">We’ll Never Be Royals</h2>
+          <p class="owner-name">Deetz</p>
+        </div>
+        <div class="grade-stamp">B+</div>
+      </div>
+
+      
+
+      <p class="paragraph">We&#39;ll Never Be Royals leaned all-in on wide receiver in this rookie class, and while the volume is admirable, the value doesn&#39;t quite back it up. Denzel Boston at 1.07 is the headliner here, but a WR ranked around 99th overall going in Round 1 tells you this was a thin class or a reach of convenience rather than a slam dunk — the ceiling exists, but the discount doesn&#39;t. Chris Bell in Round 2 is a reasonable dart throw on a 22-year-old, but the return to WR immediately after with Ted Hurst — a fringe top-165 prospect — at 2.23 is a stretch that could&#39;ve netted more informed upside elsewhere. Closing with Ty Simpson at age 24, QB depth chart filler ranked outside the top 175, caps this class with a low-ceiling flier rather than a lottery ticket. Punting K and DEF was the correct process call, no issue there. This is a class heavy on volume and lighter on true value or difference-making youth — solid effort, shaky execution.</p>
+
+      <details class="picks">
+        <summary>Full pick list (4)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.7</span>
+          <span class="pick-name">Denzel Boston</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-92</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.19</span>
+          <span class="pick-name">Chris Bell</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-100</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.23</span>
+          <span class="pick-name">Ted Hurst</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-142</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.32</span>
+          <span class="pick-name">Ty Simpson</span>
+          <span class="pick-pos">QB</span>
+          
+          <span class="pick-value negative">-145</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">lebron ledaddies</h2>
+          <p class="owner-name">ShadowPP</p>
+        </div>
+        <div class="grade-stamp">B</div>
+      </div>
+
+      
+
+      <p class="paragraph">Lebron Ledaddies played this rookie class safe and, frankly, a touch expensive. Makai Lemon at 1.04 is the anchor and a defensible one — a Round 1 asset at his ranked-61 range still gives you a shot at a difference-maker — but the wheels wobble after that. Ja&#39;Kobi Lane in Round 2 is fine value on paper, yet Eli Stowers a few picks later at 2.17 is a straight reach on a TE profile that ranks nearly 150 spots out, and reaches at the tight end position rarely age well in dynasty. Round 3 doubles down on that pattern: Antonio Williams is a shrug at 148, and Kaytron Allen at 3.26 is the head-scratcher of the class — a 24-year-old back with a ranked-195 profile is not the ceiling swing you want with premium draft capital this late in the aging curve. There&#39;s no true home-run pick here, no standout value grab, just a solid WR1 and a series of picks that cost more capital than the market said they were worth. B-grade class, competent floor, capped upside.</p>
+
+      <details class="picks">
+        <summary>Full pick list (5)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.4</span>
+          <span class="pick-name">Makai Lemon</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-57</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.13</span>
+          <span class="pick-name">Ja&#39;Kobi Lane</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-118</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.17</span>
+          <span class="pick-name">Eli Stowers</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-129</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.25</span>
+          <span class="pick-name">Antonio Williams</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-123</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.26</span>
+          <span class="pick-name">Kaytron Allen</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-169</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">1 ginger</h2>
+          <p class="owner-name">hmunda</p>
+        </div>
+        <div class="grade-stamp">B-</div>
+      </div>
+
+      
+
+      <p class="paragraph">Ginger&#39;s class starts hot and cools fast. Jeremiyah Love at 1.01 is about as safe as a rookie-only draft allows — a 21-year-old bell-cow prospect who was going to be gone regardless of slot, and there&#39;s zero argument against banking the consensus top asset in the class. KC Concepcion at 1.06 is a reasonable follow-up, a 22-year-old receiver with a real role projection, even if the ADP value there is closer to fair market than a coup. After that, the class drifts into filler. Zachariah Branch in Round 2 is a dice roll on athletic upside more than production. Then Round 3 gets genuinely tough to defend — Barion Brown at pick 29 (ranked ~253) and Seth McGowan at pick 30 (ranked ~218, already 25) are both significant reaches on players with capped upside and, in McGowan&#39;s case, minimal runway left in dynasty terms. Skipping K/DEF is a non-issue in a rookie-only pool. Two legitimate building blocks up top, but the back-end reaches drag this down to a B- rather than anything higher.</p>
+
+      <details class="picks">
+        <summary>Full pick list (5)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.1</span>
+          <span class="pick-name">Jeremiyah Love</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-6</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.6</span>
+          <span class="pick-name">KC Concepcion</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-57</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.18</span>
+          <span class="pick-name">Zachariah Branch</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-175</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.29</span>
+          <span class="pick-name">Barion Brown</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-224</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.30</span>
+          <span class="pick-name">Seth McGowan</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-188</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Shitters</h2>
+          <p class="owner-name">aevo</p>
+        </div>
+        <div class="grade-stamp">C+</div>
+      </div>
+
+      
+
+      <p class="paragraph">The Shitters land at a C+ here, and it&#39;s a class defined by caution rather than conviction. Jonah Coleman at Pick 8 is a reasonable anchor, but the wheels come off from there — Nicholas Singleton at Pick 12 is a full round-plus reach on a player valued closer to 141, and Germie Bernard at Pick 20 doubles down on that pattern, going off the board at 180-ish value nearly a round early. Cyrus Allen in Round 3 is the one selection that lines up with where the market actually had him, but one fairly-priced pick can&#39;t offset two significant reaches. The bigger issue is the age profile: every single player in this class is already 23 or 24, meaning this isn&#39;t a haul of teenage lottery tickets — it&#39;s a set of near-finished products with limited runway to actually outgrow their current outlook. For a rookie-only draft, that&#39;s the quiet killer here: you can survive reaching on price if you&#39;re banking future upside, but the Shitters reached on price and got players who are already close to their statistical ceilings.</p>
+
+      <details class="picks">
+        <summary>Full pick list (4)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.8</span>
+          <span class="pick-name">Jonah Coleman</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-88</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R1.12</span>
+          <span class="pick-name">Nicholas Singleton</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-129</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.20</span>
+          <span class="pick-name">Germie Bernard</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-160</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.31</span>
+          <span class="pick-name">Cyrus Allen</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-114</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Not Worthy</h2>
+          <p class="owner-name">cporczak</p>
+        </div>
+        <div class="grade-stamp">C</div>
+      </div>
+
+      
+
+      <p class="paragraph">Not Worthy walked away from this rookie class with three shots at receiver and not much to show for the capital spent. Omar Cooper at 2.16 is the closest thing to defensible value here, but a WR ranked around 114 overall going in Round 2 is still paying retail for a fringe dart-throw. Then it gets rough — Caleb Douglas at 2.24 was on the board as a 166-ranked prospect, a reach that stings even more in a rookie-only pool where premium youth is the entire point, and Elijah Sarratt at 3.34 checks in around 237, a swing-and-miss on ADP that&#39;s hard to justify even as a lottery ticket. All three are already 23, which caps the long-term upside case that usually justifies overpaying on rookie draft capital — these aren&#39;t teenage projects, they&#39;re older prospects with tighter developmental windows. Punting kicker and defense is a non-issue as always, but a receiver-only, reach-heavy class like this one just doesn&#39;t move the value needle in a rebuild.</p>
+
+      <details class="picks">
+        <summary>Full pick list (3)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.16</span>
+          <span class="pick-name">Omar Cooper</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-98</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R2.24</span>
+          <span class="pick-name">Caleb Douglas</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-142</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.34</span>
+          <span class="pick-name">Elijah Sarratt</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-203</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Meatt’s UN</h2>
+          <p class="owner-name">Meattball24</p>
+        </div>
+        <div class="grade-stamp">C-</div>
+      </div>
+
+      
+
+      <p class="paragraph">Meatt&#39;s UN turned in the shortest homework assignment in the league, and it shows — one pick, one grade to defend, and it&#39;s not a good one. Demond Claiborne at Pick 35 in Round 3 is the definition of a reach when the guy is sitting at ~205 in dynasty rookie ranks; you don&#39;t need to spend a third-round pick to find a player who&#39;s available on waivers in most leagues two weeks into the season. Age 23 for a rookie RB is already a red flag for long-term dynasty equity — that&#39;s a player with a short runway before he&#39;s fighting for touches against your own bench, not a stash-and-develop asset. With no other capital deployed, there&#39;s no portfolio effect to hide behind: this is a swing-and-miss on both value and youth, back-to-back. Punting the kicker and defense slots is a total non-issue, standard operating procedure — but a single reach that misses the ADP target this badly leaves nothing else to point to as a redeeming quality from this class.</p>
+
+      <details class="picks">
+        <summary>Full pick list (1)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.35</span>
+          <span class="pick-name">Demond Claiborne</span>
+          <span class="pick-pos">RB</span>
+          
+          <span class="pick-value negative">-170</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Saarbucks</h2>
+          <p class="owner-name">Saarbucks</p>
+        </div>
+        <div class="grade-stamp">D+</div>
+      </div>
+
+      
+
+      <p class="paragraph">Saarbucks turned in one of the thinner rookie hauls in the league, and the two picks they did make only compound the issue. Spending back-to-back Round 3 selections on Eli Raridon and Skyler Bell is a rough allocation of draft capital when both players sit outside the top-200 in dynasty rankings — this isn&#39;t a case of reaching a round early on upside, it&#39;s paying premium draft position for replacement-level dart throws. Worse, neither pick brings the youth angle that usually justifies a swing like this: Raridon is already 23, Bell is 24, meaning both are further along the aging curve than most rookie-pool assets and have less runway to develop into anything resembling their draft cost. In a rookie-only supplemental format, the entire value proposition is buying future assets cheaply — and Saarbucks instead bought two older, lower-ceiling players at prices dynasty ADP says they shouldn&#39;t have. Punting kicker and defense is a non-issue, as always, but this class simply didn&#39;t add meaningful long-term equity.</p>
+
+      <details class="picks">
+        <summary>Full pick list (2)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.28</span>
+          <span class="pick-name">Eli Raridon</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-182</span>
+          
+        </div>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.36</span>
+          <span class="pick-name">Skyler Bell</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-164</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Sumi Sumi</h2>
+          <p class="owner-name">sumit1125</p>
+        </div>
+        <div class="grade-stamp">D</div>
+      </div>
+
+      
+
+      <p class="paragraph">Sumi Sumi&#39;s supplemental class begins and ends with one card: Chris Brazzell in Round 3, and it&#39;s a swing-and-miss on value. Taking a receiver ranked around 260th overall with a Round 3 pick is the kind of reach that torches capital regardless of format — you&#39;re paying premium draft equity for a fringe-roster dart throw. At 23, Brazzell already isn&#39;t the kind of ultra-young developmental asset that makes a reach forgivable in dynasty; he&#39;s not a teenager with a decade of runway, he&#39;s a player who needed to profile as a Day 2 talent to justify this slot, and the industry consensus says he doesn&#39;t. Whether Sumi Sumi traded away the rest of this class for future capital or simply had a thin bag of picks to work with, the lone selection they did make failed to capture anything close to fair value. Punting kicker and defense is a non-issue in a rookie-only draft — the real problem is that the one asset added here doesn&#39;t move the needle.</p>
+
+      <details class="picks">
+        <summary>Full pick list (1)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.27</span>
+          <span class="pick-name">Chris Brazzell</span>
+          <span class="pick-pos">WR</span>
+          
+          <span class="pick-value negative">-233</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+    <section class="team-card">
+      <div class="team-card-head">
+        <div>
+          <h2 class="team-name">Ashwinpc00</h2>
+          <p class="owner-name">Ashwinpc00</p>
+        </div>
+        <div class="grade-stamp">F</div>
+      </div>
+
+      
+
+      <p class="paragraph">Ashwinpc00 walked into this rookie supplemental draft with picks to spend and walked out with exactly one name on the card: Max Klare, a Round 3 tight end selection burned on a prospect sitting around ADP 266. That&#39;s not a swing for upside, that&#39;s a dart throw at a player the market has already priced as a non-factor, and at 23 years old Klare doesn&#39;t even carry the &#34;developmental clock&#34; excuse — he&#39;s already older than most of the rookie pool he&#39;s competing against for snaps. There&#39;s no value story here because there&#39;s no comparison point; you can&#39;t grade well on a class that consists of a single reach with no depth behind it. Punting kicker and defense is a non-issue as always, but punting the rest of your draft capital on one shaky tight end swing is how you end up with an F. Zero picks that hit market value, one pick that actively lost value the moment it was made — this class is a bye week.</p>
+
+      <details class="picks">
+        <summary>Full pick list (1)</summary>
+        
+        <div class="pick-row">
+          <span class="pick-no">R3.33</span>
+          <span class="pick-name">Max Klare</span>
+          <span class="pick-pos">TE</span>
+          
+          <span class="pick-value negative">-233</span>
+          
+        </div>
+        
+      </details>
+    </section>
+    
+  </div>
+
+  <footer class="site-footer">
+    <p>Generated 2026-09-02 03:47 UTC &middot; Dynasty values via <a href="https://fantasycalc.com/" target="_blank" rel="noopener">FantasyCalc</a></p>
+  </footer>
+</div>
+</body>
+</html>
