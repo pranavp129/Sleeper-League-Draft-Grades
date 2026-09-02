@@ -24,6 +24,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--league-id", default=None, help="Sleeper league ID (overrides SLEEPER_LEAGUE_ID)")
     parser.add_argument("--year", type=int, default=datetime.now().year, help="Season year, for FFC ADP lookup")
     parser.add_argument(
+        "--format",
+        choices=["redraft", "dynasty"],
+        required=True,
+        help=(
+            "Redraft or dynasty league. Changes the ADP source (this year's vs. dynasty "
+            "consensus), the upside grade component (boom/bust volatility vs. roster youth), "
+            "and how the recap paragraphs reason about picks. No default -- always specify."
+        ),
+    )
+    parser.add_argument(
         "--slug",
         default=None,
         help="URL slug for this league's page (docs/<slug>/). Defaults to a slugified league name.",
@@ -39,7 +49,11 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def check_scoring_settings(league: dict) -> str | None:
+def check_scoring_settings(league: dict, league_format: str) -> str | None:
+    if league_format == "dynasty":
+        # FFC's dynasty ADP is a single blended format, not split by scoring type,
+        # so there's nothing to sanity-check it against here.
+        return None
     scoring = league.get("scoring_settings", {}) or {}
     rec = scoring.get("rec")
     if rec is None:
@@ -56,6 +70,12 @@ def build_power_scores(grades: dict[int, grading.TeamGradeResult]) -> dict[int, 
     return {roster_id: g.composite_score for roster_id, g in grades.items()}
 
 
+def count_qb_slots(league: dict) -> int:
+    """QB + Superflex slot count, for FantasyCalc's numQbs param (1QB vs. Superflex value sets differ a lot)."""
+    roster_positions = league.get("roster_positions", []) or []
+    return sum(1 for slot in roster_positions if slot.upper() in {"QB", "SUPER_FLEX"}) or 1
+
+
 def main() -> None:
     load_dotenv()
     args = parse_args()
@@ -70,7 +90,7 @@ def main() -> None:
     users = sleeper_client.get_league_users(league_id)
     rosters = sleeper_client.get_league_rosters(league_id)
 
-    scoring_warning = check_scoring_settings(league)
+    scoring_warning = check_scoring_settings(league, args.format)
     if scoring_warning:
         logger.warning(scoring_warning)
 
@@ -85,20 +105,31 @@ def main() -> None:
     all_players = sleeper_client.get_all_players(force_refresh=args.force_refresh)
 
     team_count = league.get("total_rosters") or len(rosters)
-    logger.info("Building rankings (FFC ADP + DynastyProcess crosswalk)...")
-    ranking_table, live_adp_succeeded = rankings.build_rankings(
-        league_id=league_id,
-        team_count=team_count,
-        year=args.year,
-        all_players=all_players,
-    )
+
+    if args.format == "dynasty":
+        num_qbs = count_qb_slots(league)
+        ppr = (league.get("scoring_settings", {}) or {}).get("rec", 0.5)
+        logger.info("Building rankings (FantasyCalc dynasty values, numQbs=%d, ppr=%s)...", num_qbs, ppr)
+        ranking_table, live_adp_succeeded = rankings.build_dynasty_rankings(
+            team_count=team_count, all_players=all_players, num_qbs=num_qbs, ppr=ppr,
+        )
+    else:
+        logger.info("Building rankings (FFC half-ppr ADP + DynastyProcess crosswalk)...")
+        ranking_table, live_adp_succeeded = rankings.build_rankings(
+            league_id=league_id, team_count=team_count, year=args.year, all_players=all_players,
+            adp_format="half-ppr",
+        )
     logger.info("Resolved %d ranked players.", len(ranking_table))
 
-    adp_stdev_by_sleeper_id = {
-        sleeper_id: rp.stdev
-        for sleeper_id, rp in ranking_table.items()
-        if rp.stdev is not None
-    }
+    if args.format == "dynasty":
+        # Younger = higher score once normalized (higher raw value = better, same convention as stdev below).
+        upside_metric_by_sleeper_id = {
+            sleeper_id: -rp.age for sleeper_id, rp in ranking_table.items() if rp.age is not None
+        }
+    else:
+        upside_metric_by_sleeper_id = {
+            sleeper_id: rp.stdev for sleeper_id, rp in ranking_table.items() if rp.stdev is not None
+        }
 
     logger.info("Grading teams...")
     grades = grading.grade_all_teams(
@@ -107,7 +138,7 @@ def main() -> None:
         users=users,
         league=league,
         rankings=ranking_table,
-        adp_stdev_by_sleeper_id=adp_stdev_by_sleeper_id,
+        upside_metric_by_sleeper_id=upside_metric_by_sleeper_id,
     )
 
     logger.info("Simulating season...")
@@ -137,7 +168,8 @@ def main() -> None:
         }
     else:
         paragraphs = narrative.generate_all_paragraphs(
-            api_key=api_key, grades=grades, projected_records=projected_records, model=args.model
+            api_key=api_key, grades=grades, projected_records=projected_records, model=args.model,
+            league_format=args.format,
         )
 
     teams_context = []
@@ -168,6 +200,7 @@ def main() -> None:
 
     context = {
         "league_name": league.get("name", "Fantasy League"),
+        "league_format": args.format,
         "year": args.year,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "teams": teams_context,

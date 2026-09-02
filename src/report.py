@@ -125,7 +125,10 @@ def render_markdown(context: dict, output_path: Path | None = None, slug: str | 
         lines.append("")
 
     lines.append("---")
-    lines.append("_ADP data via [Fantasy Football Calculator](https://fantasyfootballcalculator.com/)._")
+    if context.get("league_format") == "dynasty":
+        lines.append("_Dynasty values via [FantasyCalc](https://fantasycalc.com/)._")
+    else:
+        lines.append("_ADP data via [Fantasy Football Calculator](https://fantasyfootballcalculator.com/)._")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(lines), encoding="utf-8")

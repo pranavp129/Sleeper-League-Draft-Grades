@@ -19,12 +19,13 @@ Fill in `.env`:
 ## Generate a recap for a league
 
 ```bash
-python src/main.py --league-id <sleeper_league_id>
+python src/main.py --league-id <sleeper_league_id> --format redraft
 ```
 
-This writes `docs/<slug>/index.html` (slug is auto-derived from the league's name on Sleeper)
-and an archival copy at `reports/<slug>/<year>-draft-recap.md`. It also updates
-`docs/index.html`, the hub page listing every league that's been generated.
+`--format` is required — there's no default, on purpose (see below). This writes
+`docs/<slug>/index.html` (slug is auto-derived from the league's name on Sleeper) and an
+archival copy at `reports/<slug>/<year>-draft-recap.md`. It also updates `docs/index.html`,
+the hub page listing every league that's been generated.
 
 Useful flags:
 - `--slug my-league` — set the URL slug explicitly (needed if two leagues would otherwise
@@ -34,12 +35,32 @@ Useful flags:
   useful for checking grades/records without spending API credits)
 - `--model claude-haiku-4-5-20251001` — use a cheaper model for the recap paragraphs
 
+### Redraft vs. dynasty
+
+`--format redraft` or `--format dynasty` changes real parts of the grading, not just the
+wording:
+
+| | Redraft | Dynasty |
+|---|---|---|
+| Rank source | FFC half-PPR ADP (this year only) | FantasyCalc dynasty trade values |
+| "Upside" component | ADP volatility (boom/bust risk) | Roster youth (younger = better) |
+| Recap tone | This season's floor/ceiling | Long-term asset value; aging vets get flagged even if productive now |
+
+Dynasty uses FantasyCalc instead of FFC's dynasty ADP because FFC's dynasty mock-draft
+sample is too thin early in the year (as few as ~15 players with usable data) — FantasyCalc
+returns Sleeper IDs natively and includes player age, so no name-matching step is even needed
+for that path. K/DEF simply have no dynasty value and are treated as unranked, same as any
+other player the pipeline can't resolve.
+
+**If you don't say which one, ask before running** — grading a dynasty startup with redraft
+ADP (or vice versa) will confidently produce the wrong grades.
+
 ## Adding another league
 
-Same command, just point it at the new league's ID:
+Same command, just point it at the new league's ID (and pick the right `--format`):
 
 ```bash
-python src/main.py --league-id <new_sleeper_league_id>
+python src/main.py --league-id <new_sleeper_league_id> --format redraft
 ```
 
 It'll land at its own `docs/<new-slug>/` page and appear as a new card on the hub — no other

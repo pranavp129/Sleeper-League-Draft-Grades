@@ -49,6 +49,7 @@ class PickRecord:
     position: str
     rank: float | None
     value: float | None  # pick_no - rank; positive = value gained, negative = reach
+    age: float | None = None  # from the crosswalk, most relevant in dynasty mode
 
 
 @dataclass
@@ -122,6 +123,7 @@ def _team_picks(
                 position=position or (ranked.position if ranked else ""),
                 rank=rank,
                 value=value,
+                age=ranked.age if ranked else None,
             )
         )
     records.sort(key=lambda r: (r.pick_no is None, r.pick_no))
@@ -183,11 +185,17 @@ def _balance_component(picks: list[PickRecord]) -> float:
     return -deviation
 
 
-def _upside_component(picks: list[PickRecord], adp_stdev_by_sleeper_id: dict[str, float]) -> float | None:
-    stdevs = [adp_stdev_by_sleeper_id[p.sleeper_id] for p in picks if p.sleeper_id in adp_stdev_by_sleeper_id]
-    if not stdevs:
+def _upside_component(picks: list[PickRecord], upside_metric_by_sleeper_id: dict[str, float]) -> float | None:
+    """Average a per-player "higher is better" upside metric across the roster.
+
+    What the metric actually represents is decided by the caller: redraft mode
+    passes ADP standard deviation (boom/bust volatility), dynasty mode passes
+    negative age (younger roster = higher score) -- see main.py.
+    """
+    values = [upside_metric_by_sleeper_id[p.sleeper_id] for p in picks if p.sleeper_id in upside_metric_by_sleeper_id]
+    if not values:
         return None
-    return sum(stdevs) / len(stdevs)
+    return sum(values) / len(values)
 
 
 def _normalize(raw_by_roster: dict[int, float | None]) -> dict[int, float]:
@@ -221,9 +229,9 @@ def grade_all_teams(
     users: list[dict],
     league: dict,
     rankings: dict,
-    adp_stdev_by_sleeper_id: dict[str, float] | None = None,
+    upside_metric_by_sleeper_id: dict[str, float] | None = None,
 ) -> dict[int, TeamGradeResult]:
-    adp_stdev_by_sleeper_id = adp_stdev_by_sleeper_id or {}
+    upside_metric_by_sleeper_id = upside_metric_by_sleeper_id or {}
     roster_positions = league.get("roster_positions", [])
     required = _expand_required_positions(roster_positions)
 
@@ -246,7 +254,7 @@ def grade_all_teams(
         v = _value_component(picks)
         n, gaps, punted = _need_component(picks, required)
         b = _balance_component(picks)
-        u = _upside_component(picks, adp_stdev_by_sleeper_id)
+        u = _upside_component(picks, upside_metric_by_sleeper_id)
 
         value_raw[roster_id] = v
         need_raw[roster_id] = n

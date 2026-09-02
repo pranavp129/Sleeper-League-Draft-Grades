@@ -1,10 +1,10 @@
-"""ADP fetch (Fantasy Football Calculator) + crosswalk matching to sleeper_id.
+"""Ranking sources for redraft and dynasty grading.
 
 Produces a normalized ranking table: sleeper_id -> {rank, position, name, source}.
 Downstream grading code never needs to know whether a given player's rank came
-from the live ADP pull or the manual CSV fallback.
+from the live pull or the manual CSV fallback, or which format it came from.
 
-Matching pipeline:
+Redraft matching pipeline (build_rankings):
   1. Pull ADP from FFC (player names, not Sleeper IDs).
   2. Resolve each name to a sleeper_id via the DynastyProcess player-id crosswalk,
      matched on the crosswalk's pre-normalized `merge_name` column.
@@ -14,12 +14,21 @@ Matching pipeline:
      merge_name column, accepted only above a high confidence threshold.
   5. Unmatched entries are logged and excluded, not silently dropped without a trace.
   6. data/rankings.csv (optional) overrides/fills in on top of all of the above.
+
+Dynasty pipeline (build_dynasty_rankings): FFC's dynasty ADP sample is far too
+thin to grade a full draft with (13-85 players, vs. 500+ for redraft) --
+FantasyCalc's public dynasty trade-value API is used instead. It returns
+Sleeper IDs natively (no crosswalk matching needed) and includes player age,
+which dynasty grading needs. K/DEF have no dynasty value on FantasyCalc (they
+aren't real dynasty assets), so they're simply unranked there, same as any
+other unmatched player -- handled by the existing degrade-gracefully path.
 """
 
 from __future__ import annotations
 
 import csv
 import io
+import json
 import logging
 import re
 import time
@@ -41,6 +50,9 @@ FFC_ADP_URL = "https://fantasyfootballcalculator.com/api/v1/adp/{fmt}"
 DYNASTYPROCESS_CROSSWALK_URL = (
     "https://raw.githubusercontent.com/dynastyprocess/data/master/files/db_playerids.csv"
 )
+FANTASYCALC_VALUES_URL = "https://api.fantasycalc.com/values/current"
+FANTASYCALC_CACHE_PATH = CACHE_DIR / "fantasycalc_dynasty.json"
+FANTASYCALC_CACHE_MAX_AGE_SECONDS = 24 * 60 * 60
 
 FUZZY_MATCH_THRESHOLD = 90  # 0-100, rapidfuzz token_sort_ratio; only accept high-confidence matches
 
@@ -56,7 +68,8 @@ class RankedPlayer:
     rank: float
     name: str
     source: str  # "adp" | "manual"
-    stdev: float | None = None  # ADP standard deviation, used as an upside/volatility proxy
+    stdev: float | None = None  # ADP standard deviation, used as a redraft upside/volatility proxy
+    age: float | None = None  # from the crosswalk, used as a dynasty upside/youth proxy
 
 
 def normalize_name(name: str, keep_hyphens: bool = True) -> str:
@@ -175,6 +188,18 @@ def _lookup_merge_name(
     return None, None
 
 
+def _parse_age(row: dict | None) -> float | None:
+    if row is None:
+        return None
+    raw = row.get("age")
+    if not raw or raw == "NA":
+        return None
+    try:
+        return float(raw)
+    except ValueError:
+        return None
+
+
 def match_adp_to_sleeper_ids(
     adp_players: list[dict],
     crosswalk_rows: list[dict],
@@ -227,7 +252,10 @@ def match_adp_to_sleeper_ids(
             continue
 
         matched.append(
-            RankedPlayer(sleeper_id=sleeper_id, position=position, rank=adp, name=name, source="adp", stdev=stdev)
+            RankedPlayer(
+                sleeper_id=sleeper_id, position=position, rank=adp, name=name, source="adp",
+                stdev=stdev, age=_parse_age(row),
+            )
         )
 
     return matched, unmatched
@@ -355,3 +383,100 @@ def build_rankings(
         rankings[rp.sleeper_id] = rp
 
     return rankings, live_adp_succeeded
+
+
+def fetch_fantasycalc_dynasty_values(
+    team_count: int,
+    num_qbs: int = 1,
+    ppr: float = 0.5,
+    force_refresh: bool = False,
+) -> list[dict]:
+    """Fetch + cache FantasyCalc's dynasty trade values (24h cache, no API key needed).
+
+    Returns Sleeper IDs natively -- no crosswalk matching required for this path.
+    """
+    if not force_refresh and FANTASYCALC_CACHE_PATH.exists():
+        age = time.time() - FANTASYCALC_CACHE_PATH.stat().st_mtime
+        if age < FANTASYCALC_CACHE_MAX_AGE_SECONDS:
+            with open(FANTASYCALC_CACHE_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+
+    resp = requests.get(
+        FANTASYCALC_VALUES_URL,
+        params={"isDynasty": "true", "numQbs": num_qbs, "numTeams": team_count, "ppr": ppr},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+
+    FANTASYCALC_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(FANTASYCALC_CACHE_PATH, "w", encoding="utf-8") as f:
+        json.dump(data, f)
+    return data
+
+
+def build_dynasty_rankings(
+    team_count: int,
+    all_players: dict,
+    num_qbs: int = 1,
+    ppr: float = 0.5,
+) -> tuple[dict[str, RankedPlayer], bool]:
+    """Build the sleeper_id -> RankedPlayer table for dynasty grading.
+
+    Same manual-CSV-override/fallback shape as build_rankings, but the live
+    source is FantasyCalc's dynasty values rather than FFC's (too-thin) dynasty
+    ADP. Returns (rankings_by_sleeper_id, live_pull_succeeded).
+    """
+    team_abbrev_to_def_id = build_team_abbrev_to_def_id(all_players)
+
+    live_matched: list[RankedPlayer] = []
+    live_pull_succeeded = True
+
+    try:
+        raw_values = fetch_fantasycalc_dynasty_values(team_count=team_count, num_qbs=num_qbs, ppr=ppr)
+        for entry in raw_values:
+            player = entry.get("player") or {}
+            position = player.get("position")
+            if position not in {"QB", "RB", "WR", "TE"}:
+                continue  # "PICK" entries (e.g. "2027 1st") -- Sleeper drafts are always real players
+            sleeper_id = player.get("sleeperId")
+            rank = entry.get("overallRank")
+            if not sleeper_id or rank is None:
+                continue
+            live_matched.append(
+                RankedPlayer(
+                    sleeper_id=str(sleeper_id),
+                    position=position,
+                    rank=float(rank),
+                    name=player.get("name", ""),
+                    source="dynasty_fc",
+                    age=player.get("maybeAge"),
+                )
+            )
+    except Exception as exc:  # noqa: BLE001 - degrade gracefully, never crash the run
+        logger.warning(
+            "Live FantasyCalc dynasty pull failed (%s); falling back to manual rankings.csv only.", exc
+        )
+        live_pull_succeeded = False
+
+    try:
+        crosswalk_rows = fetch_dynastyprocess_crosswalk()
+    except Exception:  # noqa: BLE001
+        crosswalk_rows = []
+
+    manual_rows = load_manual_rankings()
+    manual_matched, manual_unmatched = match_manual_rankings_to_sleeper_ids(
+        manual_rows, crosswalk_rows, team_abbrev_to_def_id
+    )
+    if manual_unmatched:
+        logger.warning("%d manual rankings.csv entries could not be matched:", len(manual_unmatched))
+        for row in manual_unmatched:
+            logger.warning("  unmatched: %s", row.get("player_name"))
+
+    rankings: dict[str, RankedPlayer] = {}
+    for rp in live_matched:
+        rankings[rp.sleeper_id] = rp
+    for rp in manual_matched:
+        rankings[rp.sleeper_id] = rp
+
+    return rankings, live_pull_succeeded

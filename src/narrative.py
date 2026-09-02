@@ -20,7 +20,7 @@ DEFAULT_MODEL = "claude-sonnet-5"
 CHEAP_MODEL = "claude-haiku-4-5-20251001"
 MAX_TOKENS = 500
 
-SYSTEM_PROMPT = """You are a confident sports-analyst columnist writing post-draft \
+BASE_SYSTEM_PROMPT = """You are a confident sports-analyst columnist writing post-draft \
 recap paragraphs for a fantasy football league's report-card website. Write in the \
 voice of a beat writer grading a real draft class: opinionated, specific, no hedging \
 language ("might", "could potentially", "it's possible that"). Reference concrete \
@@ -31,36 +31,58 @@ strategic choice (streaming those positions off waivers all season) -- do not \
 call it a mistake, a hole, or a wound. It's fine to note in passing at most. \
 Write 120-180 words, one paragraph, no headers or bullet points."""
 
+REDRAFT_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT + """ This is a REDRAFT league -- rosters \
+reset next season, so grade purely on this year: value vs. this year's ADP, \
+lineup fit, and weekly floor/ceiling. A player's age or long-term outlook is \
+irrelevant here."""
+
+DYNASTY_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT + """ This is a DYNASTY league -- rosters \
+carry over indefinitely, so grade for long-term asset value, not just this \
+season. Rank/value figures are already dynasty ADP (the market's age-adjusted \
+consensus), so a rookie or ascending 23-year-old taken above ADP is still a \
+reach, and a declining veteran taken at "good value" relative to ADP can still \
+be a bad long-term asset -- weigh both. Praise teams that accumulated youth and \
+draft capital even if it costs immediate production; flag teams that paid up \
+for aging veterans even if those picks look fine by this year's output alone. \
+Reference player ages where given -- they're central to a dynasty grade."""
+
+SYSTEM_PROMPTS = {"redraft": REDRAFT_SYSTEM_PROMPT, "dynasty": DYNASTY_SYSTEM_PROMPT}
+
+
+def _pick_descriptor(p, include_age: bool) -> str:
+    rank_note = f", ranked ~{p.rank:.0f}" if p.rank is not None else ""
+    age_note = f", age {p.age:.0f}" if include_age and p.age is not None else ""
+    return f"{p.name} (Round {p.round}, Pick {p.pick_no}, {p.position}{rank_note}{age_note})"
+
 
 def _build_user_prompt(
     team_name: str,
     grade: TeamGradeResult,
     projected_record: ProjectedRecord | str,
+    league_format: str = "redraft",
 ) -> str:
-    pick_lines = []
-    for p in grade.picks:
-        rank_note = f", ranked ~{p.rank:.0f}" if p.rank is not None else ""
-        pick_lines.append(f"  Round {p.round}, Pick {p.pick_no}: {p.name} ({p.position}){rank_note}")
+    is_dynasty = league_format == "dynasty"
+    pick_lines = [f"  {_pick_descriptor(p, is_dynasty)}" for p in grade.picks]
 
-    value_lines = "\n".join(
-        f"  {p.name} (Round {p.round}, Pick {p.pick_no}, ranked ~{p.rank:.0f})" for p in grade.best_value_picks
-    ) or "  None standout"
-    reach_lines = "\n".join(
-        f"  {p.name} (Round {p.round}, Pick {p.pick_no}, ranked ~{p.rank:.0f})" for p in grade.reaches
-    ) or "  None standout"
+    value_lines = "\n".join(f"  {_pick_descriptor(p, is_dynasty)}" for p in grade.best_value_picks) or "  None standout"
+    reach_lines = "\n".join(f"  {_pick_descriptor(p, is_dynasty)}" for p in grade.reaches) or "  None standout"
     gap_lines = ", ".join(grade.positional_gaps) or "None"
     punted_lines = ", ".join(grade.punted_positions) or "None"
+
+    adp_label = "dynasty ADP" if is_dynasty else "this year's ADP"
+    upside_label = "Roster youth / long-term upside" if is_dynasty else "Upside vs. floor mix"
 
     record_str = str(projected_record)
 
     return f"""Team: {team_name}
+League format: {"Dynasty" if is_dynasty else "Redraft"}
 Letter grade: {grade.letter_grade}
 
 Grade components (0-100 scale, higher is better):
-  Value captured vs. ADP: {grade.normalized_components.get('value', 0):.0f}
+  Value captured vs. {adp_label}: {grade.normalized_components.get('value', 0):.0f}
   Positional need coverage: {grade.normalized_components.get('need', 0):.0f}
   Roster balance / bench depth: {grade.normalized_components.get('balance', 0):.0f}
-  Upside vs. floor mix: {grade.normalized_components.get('upside', 0):.0f}
+  {upside_label}: {grade.normalized_components.get('upside', 0):.0f}
 
 Positional gaps (real weaknesses): {gap_lines}
 Punted positions (skipped by choice, not a weakness -- do not criticize): {punted_lines}
@@ -108,15 +130,17 @@ def generate_team_paragraph(
     grade: TeamGradeResult,
     projected_record,
     model: str = DEFAULT_MODEL,
+    league_format: str = "redraft",
 ) -> str:
-    prompt = _build_user_prompt(team_name, grade, projected_record)
+    prompt = _build_user_prompt(team_name, grade, projected_record, league_format=league_format)
+    system_prompt = SYSTEM_PROMPTS.get(league_format, REDRAFT_SYSTEM_PROMPT)
 
     for attempt in range(2):
         try:
             response = client.messages.create(
                 model=model,
                 max_tokens=MAX_TOKENS,
-                system=SYSTEM_PROMPT,
+                system=system_prompt,
                 messages=[{"role": "user", "content": prompt}],
             )
             text = "".join(block.text for block in response.content if block.type == "text").strip()
@@ -134,12 +158,13 @@ def generate_all_paragraphs(
     grades: dict[int, TeamGradeResult],
     projected_records: dict[int, ProjectedRecord | str],
     model: str = DEFAULT_MODEL,
+    league_format: str = "redraft",
 ) -> dict[int, str]:
     client = Anthropic(api_key=api_key)
     paragraphs = {}
     for roster_id, grade in grades.items():
         record = projected_records.get(roster_id, "N/A")
         paragraphs[roster_id] = generate_team_paragraph(
-            client, grade.team_name, grade, record, model=model
+            client, grade.team_name, grade, record, model=model, league_format=league_format
         )
     return paragraphs

@@ -289,7 +289,7 @@
   </div>
 
   <footer class="site-footer">
-    <p>Generated {{ generated_at }} &middot; ADP data via <a href="https://fantasyfootballcalculator.com/" target="_blank" rel="noopener">Fantasy Football Calculator</a></p>
+    <p>Generated {{ generated_at }} &middot; {% if league_format == "dynasty" %}Dynasty values via <a href="https://fantasycalc.com/" target="_blank" rel="noopener">FantasyCalc</a>{% else %}ADP data via <a href="https://fantasyfootballcalculator.com/" target="_blank" rel="noopener">Fantasy Football Calculator</a>{% endif %}</p>
   </footer>
 </div>
 </body>
