@@ -287,9 +287,10 @@ def grade_all_teams(
             need_raw=n,
             balance_raw=b,
             upside_raw=u,
-            # Dynasty doesn't grade on positional gaps -- see DYNASTY_VALUE_WEIGHT above.
+            # Dynasty doesn't grade on positional gaps, and K/DEF carry no dynasty
+            # value at all -- see DYNASTY_VALUE_WEIGHT above.
             positional_gaps=[] if is_dynasty else gaps,
-            punted_positions=punted,
+            punted_positions=[] if is_dynasty else punted,
             best_value_picks=best_value,
             reaches=reaches,
         )

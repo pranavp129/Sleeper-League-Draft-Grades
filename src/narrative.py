@@ -26,15 +26,15 @@ voice of a beat writer grading a real draft class: opinionated, specific, no hed
 language ("might", "could potentially", "it's possible that"). Reference concrete \
 picks by name and round. Do not restate the stat line verbatim (e.g. don't just say \
 "they got a B+ and are projected to go 9-5") -- explain the reasoning behind it. \
-If a team punted kicker and/or defense entirely, treat that as a normal, common \
-strategic choice (streaming those positions off waivers all season) -- do not \
-call it a mistake, a hole, or a wound. It's fine to note in passing at most. \
 Write 120-180 words, one paragraph, no headers or bullet points."""
 
 REDRAFT_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT + """ This is a REDRAFT league -- rosters \
 reset next season, so grade purely on this year: value vs. this year's ADP, \
 lineup fit, and weekly floor/ceiling. A player's age or long-term outlook is \
-irrelevant here."""
+irrelevant here. If a team punted kicker and/or defense entirely, treat that as a \
+normal, common strategic choice (streaming those positions off waivers all season) \
+-- do not call it a mistake, a hole, or a wound. It's fine to note in passing at \
+most."""
 
 DYNASTY_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT + """ This is a DYNASTY league -- rosters \
 carry over indefinitely, so grade for long-term asset value, not just this \
@@ -49,8 +49,10 @@ vets is a worse fit than the same value spent on youth, and vice versa for a \
 team that's clearly contending now -- infer this from the ages and quality of \
 the picks made. Do NOT comment on "positional needs," "roster balance," or \
 lineup construction -- dynasty rosters get addressed through trades across \
-multiple years, not filled out on any single draft night. Reference player \
-ages where given -- they're central to a dynasty grade."""
+multiple years, not filled out on any single draft night. Kickers and defenses \
+carry no dynasty trade value and are irrelevant to this grade -- do not mention \
+them, or whether a team drafted/punted them, at all. Reference player ages \
+where given -- they're central to a dynasty grade."""
 
 DYNASTY_ROOKIE_ONLY_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT + """ This is a DYNASTY league's \
 ROOKIE-ONLY supplemental draft -- not a startup. Teams already have a full veteran \
@@ -58,9 +60,12 @@ roster that this draft doesn't touch; you're only seeing their handful of new ro
 picks (some teams may have traded for many, others may have traded theirs away \
 entirely -- that's normal draft-capital strategy, not a weakness by itself). Do NOT \
 comment on "positional needs," "roster balance," or "holes" -- you have no visibility \
-into their existing roster, so those concepts don't apply here. Grade purely on: value \
-vs. dynasty ADP for the picks made, and the youth/prospect quality of those picks. \
-Reference player ages -- they matter."""
+into their existing roster, so those concepts don't apply here. Kickers and \
+defenses are never drafted in a rookie-only pool and carry no dynasty value -- do \
+not mention them, or the idea of "punting" them, at all; it's not relevant \
+information, not even in passing. Grade purely on: value vs. dynasty ADP for the \
+picks made, and the youth/prospect quality of those picks. Reference player ages \
+-- they matter."""
 
 SYSTEM_PROMPTS = {"redraft": REDRAFT_SYSTEM_PROMPT, "dynasty": DYNASTY_SYSTEM_PROMPT}
 
@@ -83,18 +88,18 @@ def _build_user_prompt(
 
     value_lines = "\n".join(f"  {_pick_descriptor(p, is_dynasty)}" for p in grade.best_value_picks) or "  None standout"
     reach_lines = "\n".join(f"  {_pick_descriptor(p, is_dynasty)}" for p in grade.reaches) or "  None standout"
-    punted_lines = ", ".join(grade.punted_positions) or "None"
 
     adp_label = "dynasty ADP" if is_dynasty else "this year's ADP"
     upside_label = "Roster youth / long-term upside" if is_dynasty else "Upside vs. floor mix"
 
     if is_dynasty:
-        # Dynasty grades on value + youth only -- need/balance don't apply (see grading.py).
+        # Dynasty grades on value + youth only -- need/balance/K/DEF don't apply (see grading.py).
         components_block = (
             f"  Value captured vs. {adp_label}: {grade.normalized_components.get('value', 0):.0f}\n"
             f"  {upside_label}: {grade.normalized_components.get('upside', 0):.0f}"
         )
         gaps_block = ""
+        punted_block = ""
     else:
         gap_lines = ", ".join(grade.positional_gaps) or "None"
         components_block = (
@@ -104,6 +109,8 @@ def _build_user_prompt(
             f"  {upside_label}: {grade.normalized_components.get('upside', 0):.0f}"
         )
         gaps_block = f"\nPositional gaps (real weaknesses): {gap_lines}"
+        punted_lines = ", ".join(grade.punted_positions) or "None"
+        punted_block = f"\nPunted positions (skipped by choice, not a weakness -- do not criticize): {punted_lines}"
 
     if is_rookie_only_draft:
         format_line = "League format: Dynasty -- ROOKIE-ONLY supplemental draft (not a startup)"
@@ -119,7 +126,7 @@ Letter grade: {grade.letter_grade}
 Grade components (0-100 scale, higher is better):
 {components_block}
 {gaps_block}
-Punted positions (skipped by choice, not a weakness -- do not criticize): {punted_lines}
+{punted_block}
 
 Full pick list:
 {chr(10).join(pick_lines)}
